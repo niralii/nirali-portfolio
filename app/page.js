@@ -64,7 +64,7 @@ export default function Home() {
             </li>
             <li>
               <a
-                href="YOUR_GOOGLE_DRIVE_LINK_HERE"
+                href="https://drive.google.com/file/d/1Cd6J5RmIxGxvMCPlByUtHzDAKLw_fALM/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -84,7 +84,14 @@ export default function Home() {
           <div className="bio-container">
             <div className="bio-text">
               <p>
-                Nirali Thakkar is a Master's student specializing in Machine Learning at Georgia Tech. She has a strong passion for artificial intelligence and its applications. 
+                Nirali has recently graduated with a Master's in Machine Learning from Georgia Institute of Technology. She previously worked as a Machine Learning
+                Software Developer intern at AI Makerspace, Pace Labs, at her university where she automated data preprocessing for researchers to analyse large scale dataset within minutes. She has also worked as a NLP student researcher at Lucy Labs, where she published three research papers under the guidance of Dr. David Joyner and Alex Duncan. Her research focused on topic modeling, data coding, and causal inference to understand how AI and other factors have evolved in online education in the last ten years.  
+              </p>
+              <p>
+                She has worked as a scientific reviewer at Cactus Communications (1 year 6 months) and as a frontend software developer at Gujarati Gaurav Charitable Trust of India (1 year). She has a total work experience of 2 years with an additonal 1 year including internships. 
+              </p>
+              <p>
+                Nirali loves exploring the intersection of AI and education and please reach out if you would like to collaborate on any projects or research!
               </p>
             </div>
             <div className="bio-image">
@@ -95,21 +102,103 @@ export default function Home() {
             </div>
           </div>
 
+
           <h2>News</h2>
-          <table className="news-table">
-            <tbody>
-              <tr>
-                <td>Aug 2025</td>
-                <td>Graduated!</td>
-              </tr>
-              <tr>
-                <td>May 2024</td>
-                <td>Published three research papers at ACM Learning at Scale</td>
-              </tr>
-            </tbody>
-          </table>
+            <table className="news-table">
+              <tbody>
+                <tr>
+                  <td>Aug 2025</td>
+                  <td>
+                  Graduated! from Georgia Tech Master's in CS with specialization in Machine Learning
+                  </td>
+                </tr>
+                <tr>
+                  <td>Aug 2024</td>
+                    <td>
+                      Selected as one of 10 students for the VIP Program to work at the{" "}
+                      <a href="https://coe.gatech.edu/academics/ai-for-engineering/ai-makerspace" target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#FF1493", textDecoration: "none" }}
+            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+          >
+                        AI MakerSpace Nexus
+                      </a>{" "}
+                      and access 304 NVIDIA H100/H200 GPUs, {" "}
+                      <a href="https://pace.gatech.edu/" target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#FF1493", textDecoration: "none" }}
+            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+          >
+                      
+                      
+                      Pace Labs </a>{" "}
+                      , lead by supervisors{" "}
+                      <a href="https://ece.gatech.edu/directory/gregory-krudysz" target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#FF1493", textDecoration: "none" }}
+            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+          >
+                        Gregory Krudysz
+                      </a>{" "}
+                      and{" "}
+                      <a href="https://ece.gatech.edu/directory/ghassan-alregib" target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#FF1493", textDecoration: "none" }}
+            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+          >
+                        Ghassan Alregib
+                      </a>
+                    </td>
+                </tr>
+                <tr>
+                  <td>Aug 2023</td>
+                    <td>
+                      Joined Dr.{" "}
+                      <a href="https://www.cc.gatech.edu/people/david-joyner" target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#FF1493", textDecoration: "none" }}
+            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+          >
+                        David Joyner
+                      </a>
+                      's{" "}
+                      <a href="https://lucylabs.gatech.edu/" target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#FF1493", textDecoration: "none" }}
+            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+          >
+                        Lucy Labs
+                      </a>{" "}
+                      as a student researcher co-advised by{" "}
+                      <a href="https://www.cc.gatech.edu/people/alex-duncan" target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#FF1493", textDecoration: "none" }}
+            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+          >
+                        Alex Duncan
+                      </a>
+                   </td>
+                </tr>
+                <tr>
+                  <td>July 2023</td>
+                    <td>
+                    Selected among the top 4% applicants to attend the Amazon Machine Learning Summer School
+                  </td>
+                </tr>
+              </tbody>
+            </table>
         </div>
       </section>
+          
+
+
 
       <style jsx>{`
         /* --- GLOBAL & THEME VARIABLES --- */
