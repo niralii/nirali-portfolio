@@ -47,16 +47,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ----- MENU BAR (AFTER IMAGE) ----- */}
+      {/* ----- MENU BAR ----- */}
       <nav className="navbar">
         <div className="navbar-content">
-          <ul>
-            <li>
-              <a href="/#about">Home</a>
-            </li>
-            <li>
-              <a href="/projects">Projects</a>
-            </li>
+          <ul className="nav-links">
+            <li><a href="/#about">Home</a></li>
+            <li><a href="/projects">Projects</a></li>
             <li>
               <a
                 href="https://scholar.google.com/citations?user=zhMtcooAAAAJ&hl=en&authuser=1"
@@ -82,7 +78,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* ----- NEW CONTENT SECTION ----- */}
+      {/* ----- MAIN CONTENT ----- */}
       <section id="about" className="main-content">
         <div className="content-wrapper">
           <div className="bio-container">
@@ -108,7 +104,7 @@ export default function Home() {
               </tr>
               <tr>
                 <td>May 2024</td>
-                <td>Published three research papers at ACM Learnign at Scale</td>
+                <td>Published three research papers at ACM Learning at Scale</td>
               </tr>
             </tbody>
           </table>
@@ -116,10 +112,10 @@ export default function Home() {
       </section>
 
       <style jsx>{`
-        /* All your previous styles remain here... */
-        :global(html) {
-          scroll-behavior: smooth;
-        }
+        /* --- GLOBAL & THEME VARIABLES --- */
+        :global(html) { scroll-behavior: smooth; box-sizing: border-box; }
+        :global(*), :global(*::before), :global(*::after) { box-sizing: inherit; }
+        
         :global([data-theme="light"]) {
           --bg-navbar: #d7cdbf;
           --text-navbar: #2c2c2c;
@@ -142,18 +138,16 @@ export default function Home() {
           --border-color: #444;
           --bg-toggle: #444;
         }
+        
         .main, .navbar, .main-content, .theme-toggle {
           transition: background-color 0.3s ease, color 0.3s ease;
         }
         .main {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 100%;
-          color: white;
-          overflow-x: hidden;
-          background-color: var(--bg-content);
+          display: flex; flex-direction: column; align-items: center; width: 100%;
+          color: white; overflow-x: hidden; background-color: var(--bg-content);
         }
+
+        /* --- HERO SECTION --- */
         .hero { position: relative; width: 100%; overflow: hidden; }
         .bg-image { width: 100%; height: auto; display: block; }
         .overlay { position: absolute; top: 0; left: 0; right: 0; height: 35%; background: rgba(0, 0, 0, 0.3); z-index: 1; }
@@ -162,14 +156,65 @@ export default function Home() {
         h1 { font-size: 2.2rem; margin-bottom: 1rem; }
         .highlight { color: #ffcc66; }
         .tagline { font-size: 1.2rem; margin: 1rem 0 2rem 0; line-height: 1.5; }
+        
         .links a { margin: 0 0.6rem; text-decoration: none; color: white; border: 2px solid white; padding: 0.7rem 1.4rem; border-radius: 9999px; transition: 0.3s; font-size: 1.1rem; font-weight: 500; }
         .links a:hover { background: white; color: black; }
-        .navbar { width: 100%; background: var(--bg-navbar); color: var(--text-navbar); z-index: 3; display: flex; justify-content: center; align-items: center; padding: 1.2rem 2rem; border-top: 4px solid var(--accent-navbar); position: sticky; top: 0; }
-        .navbar-content { width: 100%; max-width: 800px; display: flex; justify-content: space-between; align-items: center; }
-        .navbar ul { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
-        .navbar a { color: var(--text-navbar); text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: color 0.3s; }
+
+        /* --- NAVBAR --- */
+        .navbar { 
+          width: 100%; 
+          background: var(--bg-navbar); 
+          color: var(--text-navbar); 
+          z-index: 3; 
+          display: flex; 
+          justify-content: center; 
+          align-items: center; 
+          padding: 1.2rem 2rem; 
+          border-top: 4px solid var(--accent-navbar); 
+          position: sticky; 
+          top: 0; 
+        }
+        .navbar-content { 
+          width: 100%; 
+          max-width: 800px; 
+          display: flex; 
+          justify-content: space-between; 
+          align-items: center; 
+        }
+        .nav-links { 
+          list-style: none; 
+          display: flex; 
+          gap: 2rem; 
+          margin: 0; 
+          padding: 0; 
+        }
+        .navbar a { 
+          color: var(--text-navbar); 
+          text-decoration: none; 
+          font-weight: 600; 
+          font-size: 1.1rem; 
+          transition: color 0.3s; 
+        }
         .navbar a:hover { color: var(--text-navbar-hover); }
-        .theme-toggle { background: var(--bg-toggle); color: var(--text-navbar); border: none; padding: 0.5rem; border-radius: 50%; cursor: pointer; font-size: 1.2rem; line-height: 0; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; }
+        
+        .theme-toggle { 
+          background: var(--bg-toggle); 
+          color: var(--text-navbar); 
+          border: none; 
+          padding: 0.5rem; 
+          border-radius: 50%; 
+          cursor: pointer; 
+          font-size: 1.2rem; 
+          line-height: 0; 
+          width: 40px; 
+          height: 40px; 
+          display: flex; 
+          justify-content: center; 
+          align-items: center; 
+          margin-left: 1rem;
+        }
+
+        /* --- MAIN CONTENT --- */
         .main-content { background: var(--bg-content); color: var(--text-main); padding: 4rem 2rem; width: 100%; display: flex; justify-content: center; }
         .content-wrapper { max-width: 800px; width: 100%; text-align: left; }
         .bio-container { display: flex; gap: 2.5rem; align-items: flex-start; margin-bottom: 2rem; }
@@ -183,79 +228,45 @@ export default function Home() {
         .news-table tr:last-child td { border-bottom: none; }
         .news-table td:first-child { font-weight: 500; color: var(--text-main); width: 140px; white-space: nowrap; }
         
+        /* --- MOBILE ADJUSTMENTS --- */
         @media (max-width: 768px) {
           /* 1. Layout fixes */
           .bio-container { flex-direction: column-reverse; }
           .bio-image { width: 70%; margin: 0 auto 2rem; }
 
-          /* ---------- NAVBAR FIXES ---------- */
+          /* 2. NAVBAR FIX - V2 */
           .navbar {
-            padding: 0.8rem 1rem; /* Reduce outer padding to give more internal space */
+            padding: 0.5rem 0.5rem; /* Drastically reduce padding */
           }
-          .navbar-content { 
-            justify-content: space-between; 
-            flex-wrap: wrap; /* Allows items to wrap if they run out of space */
-            gap: 0.5rem;     /* Small gap between wrapped items */
+          .navbar-content {
+            flex-direction: row;    /* Keep row */
+            align-items: center;    /* Vertically center */
           }
-          .navbar ul {
-            gap: 0.8rem;    /* Reduced from 2rem to fit on small screens */
-            flex-wrap: wrap; /* Allow the links themselves to wrap */
-          }
-          .navbar a {
-            font-size: 0.95rem; /* Slightly smaller text for mobile */
+          .nav-links {
+            flex: 1;                /* Take up all available space */
+            display: flex;
+            flex-wrap: wrap;        /* ALLOW LINKS TO WRAP IF NEEDED */
+            gap: 0.6rem;            /* Smaller gap */
+            justify-content: flex-start; /* Align left */
           }
           .theme-toggle {
-            flex-shrink: 0; /* Ensures the button never gets squashed or hidden */
-            margin-left: auto; /* Pushes button to the right if wrapped */
+            flex-shrink: 0;         /* DO NOT allow button to shrink/hide */
+            margin-left: 0.5rem;    /* Small gap between links and button */
+            width: 36px;            /* Slightly smaller button */
+            height: 36px;
           }
-          /* ----------------------------------- */
+          .navbar a {
+            font-size: 0.85rem;     /* Smaller text size */
+          }
 
-          /* 2. Hero Height & Background */
-          .hero { 
-            min-height: 60vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-          }
-          .bg-image { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-          }
+          /* 3. Hero & Other Mobile fixes */
+          .hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+          .bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
           .overlay { height: 100%; }
-
-          /* 3. Text Positioning */
-          .content { 
-            position: relative; 
-            top: 0; 
-            left: 0; 
-            transform: none; 
-            width: 100%; 
-            padding: 1rem; 
-          }
-          .card { 
-            transform: none; 
-            padding: 2rem 1rem; 
-            max-width: 90%; 
-            margin: 0 auto; 
-          }
-
-          /* 4. FIX FOR EMAIL BUTTON */
-          .links {
-            display: flex;
-            flex-wrap: wrap;       
-            justify-content: center;
-            gap: 0.8rem;           
-          }
-          .links a {
-            margin: 0;             
-            padding: 0.6rem 1rem;  
-            font-size: 1rem;       
-            white-space: nowrap;   
-          }
+          .content { position: relative; padding: 1rem; top: 0; transform: none; left: 0; width: 100%; }
+          .card { transform: none; padding: 2rem 1rem; max-width: 95%; margin: 0 auto; }
+          .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+          .links a { margin: 0; padding: 0.6rem 1rem; font-size: 1rem; white-space: nowrap; }
         }
       `}</style>
     </main>
