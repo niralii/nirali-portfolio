@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes"; // 1. Import this
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -18,9 +19,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    // 2. Add suppressHydrationWarning to html to stop the flicker warning
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        {/* 3. Wrap children in ThemeProvider. attribute="data-theme" matches your CSS logic. */}
+        <ThemeProvider attribute="data-theme">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

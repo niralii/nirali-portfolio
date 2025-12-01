@@ -1,16 +1,21 @@
 // File: app/projects/page.js
-
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTheme } from "next-themes"; // 1. Import next-themes
 
 export default function ProjectsPage() {
-  const [theme, setTheme] = useState("light");
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme(); // 2. Use the global theme hook
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  // 3. Wait for mount to avoid mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // 4. Return null if not mounted
+  if (!mounted) return null;
 
   // Your Project Data
   const projects = [
@@ -89,7 +94,8 @@ export default function ProjectsPage() {
   ];
 
   return (
-    <div className="page-wrapper" data-theme={theme}>
+    // 5. Removed data-theme prop (handled globally now)
+    <div className="page-wrapper">
       
       {/* --- HOME LOGO (Top Left) --- */}
       <Link href="/#about" className="home-logo" aria-label="Back to Home">
@@ -109,7 +115,11 @@ export default function ProjectsPage() {
       </Link>
 
       {/* --- THEME TOGGLE (Top Right) --- */}
-      <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
+      <button 
+        onClick={() => setTheme(theme === "light" ? "dark" : "light")} 
+        className="theme-toggle" 
+        aria-label="Toggle Theme"
+      >
         {theme === "light" ? "🌙" : "☀️"}
       </button>
 
@@ -150,46 +160,7 @@ export default function ProjectsPage() {
       </main>
 
       <style jsx>{`
-        /* --- THEME VARIABLES --- */
-        :global([data-theme="light"]) {
-          --bg-main: #f5f2ed;
-          --text-main: #2c2c2c;
-          --text-sub: #555;
-          --text-heading: #4a524a;
-          
-          --card-bg: #ffffff;
-          --card-border: #e0d9ce;
-          --card-shadow: rgba(0,0,0,0.05);
-          
-          --accent-color: #7b8a7a;
-          --accent-hover: #4a524a;
-          
-          --skill-bg: #f9f9f9;
-          --skill-text: #666;
-          
-          --btn-bg: rgba(255, 255, 255, 0.8);
-          --btn-hover: #ffffff;
-        }
-
-        :global([data-theme="dark"]) {
-          --bg-main: #2d2d2d;
-          --text-main: #e0e0e0;
-          --text-sub: #b0b0b0;
-          --text-heading: #f0f0f0;
-          
-          --card-bg: #1e1e1e;
-          --card-border: #444;
-          --card-shadow: rgba(0,0,0,0.3);
-          
-          --accent-color: #ffcc66;
-          --accent-hover: #ffe082;
-          
-          --skill-bg: #333;
-          --skill-text: #ccc;
-          
-          --btn-bg: #444;
-          --btn-hover: #555;
-        }
+        /* --- VARIABLES REMOVED FROM HERE -> MOVED TO globals.css --- */
 
         /* --- LAYOUT & TRANSITIONS --- */
         .page-wrapper {
@@ -212,7 +183,6 @@ export default function ProjectsPage() {
         }
 
         /* --- FLOATING CONTROLS (Left & Right) --- */
-        /* Note: "global" allows styling the Link component */
         :global(.home-logo) {
           position: fixed;
           top: 2rem;

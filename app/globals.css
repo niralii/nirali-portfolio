@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg-content);
+  --color-foreground: var(--text-main);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* --- THEME VARIABLES --- */
+:root {
+  /* 1. SHARED / HOME PAGE VARIABLES (Light) */
+  --bg-navbar: #d7cdbf;
+  --text-navbar: #2c2c2c;
+  --text-navbar-hover: #7b8a7a;
+  --accent-navbar: #7b8a7a;
+  --bg-content: #f5f2ed;
+  --text-main: #444;
+  --text-heading: #4a524a;
+  --border-color: #e0d9ce;
+  --bg-toggle: #ebe4d8;
+
+  /* 2. PROJECTS PAGE SPECIFIC VARIABLES (Light) */
+  --bg-main: #f5f2ed;
+  --text-sub: #555;
+  --card-bg: #ffffff;
+  --card-border: #e0d9ce;
+  --card-shadow: rgba(0,0,0,0.05);
+  --accent-color: #7b8a7a;
+  --accent-hover: #4a524a;
+  --skill-bg: #f9f9f9;
+  --skill-text: #666;
+  --btn-bg: rgba(255, 255, 255, 0.8);
+  --btn-hover: #ffffff;
+}
+
+[data-theme="dark"] {
+  /* 1. SHARED / HOME PAGE VARIABLES (Dark) */
+  --bg-navbar: #1e1e1e;
+  --text-navbar: #e0e0e0;
+  --text-navbar-hover: #ffcc66;
+  --accent-navbar: #ffcc66;
+  --bg-content: #2d2d2d;
+  --text-main: #c7c7c7;
+  --text-heading: #e0e0e0;
+  --border-color: #444;
+  --bg-toggle: #444;
+
+  /* 2. PROJECTS PAGE SPECIFIC VARIABLES (Dark) */
+  --bg-main: #2d2d2d;
+  --text-sub: #b0b0b0;
+  --card-bg: #1e1e1e;
+  --card-border: #444;
+  --card-shadow: rgba(0,0,0,0.3);
+  --accent-color: #ffcc66;
+  --accent-hover: #ffe082;
+  --skill-bg: #333;
+  --skill-text: #ccc;
+  --btn-bg: #444;
+  --btn-hover: #555;
+}
+
+/* --- GLOBAL RESETS --- */
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Use the variables immediately to prevent white flash */
+  background-color: var(--bg-content);
+  color: var(--text-main);
+  
+  /* Font settings */
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  
+  /* Smooth theme transition */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
 }

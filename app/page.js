@@ -1,16 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 
 export default function Home() {
-  const [theme, setTheme] = useState("light");
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
-    <main className="main" data-theme={theme}>
+    // We don't need data-theme here anymore because next-themes adds it to <html>
+    <main className="main">
       {/* ----- HERO IMAGE ----- */}
       <section className="hero">
         <img
@@ -27,20 +34,8 @@ export default function Home() {
             </h1>
             <p className="tagline">Passionate about everything AI!</p>
             <div className="links">
-              <a
-                href="https://github.com/niralii"
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://linkedin.com/in/nirali-t"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
+              <a href="https://github.com/niralii" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://linkedin.com/in/nirali-t" target="_blank" rel="noreferrer">LinkedIn</a>
               <a href="mailto:nirali.gatech@gmail.com">Email</a>
             </div>
           </div>
@@ -53,26 +48,10 @@ export default function Home() {
           <ul className="nav-links">
             <li><a href="/#about">Home</a></li>
             <li><a href="/projects">Projects</a></li>
-            <li>
-              <a
-                href="https://scholar.google.com/citations?user=zhMtcooAAAAJ&hl=en&authuser=1"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Publications
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://drive.google.com/file/d/1Cd6J5RmIxGxvMCPlByUtHzDAKLw_fALM/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Resume
-              </a>
-            </li>
+            <li><a href="https://scholar.google.com/citations?user=zhMtcooAAAAJ&hl=en&authuser=1" target="_blank" rel="noreferrer">Publications</a></li>
+            <li><a href="https://drive.google.com/file/d/1Cd6J5RmIxGxvMCPlByUtHzDAKLw_fALM/view?usp=sharing" target="_blank" rel="noreferrer">Resume</a></li>
           </ul>
-          <button onClick={toggleTheme} className="theme-toggle">
+          <button onClick={() => setTheme(theme === "light" ? "dark" : "light")} className="theme-toggle">
             {theme === "light" ? "🌙" : "☀️"}
           </button>
         </div>
@@ -95,138 +74,42 @@ export default function Home() {
               </p>
             </div>
             <div className="bio-image">
-              <img
-                src="/my_image.jpeg"
-                alt="A photo of Nirali Thakkar"
-              />
+              <img src="/my_image.jpeg" alt="A photo of Nirali Thakkar" />
             </div>
           </div>
-
 
           <h2>News</h2>
             <table className="news-table">
               <tbody>
                 <tr>
                   <td>Aug 2025</td>
-                  <td>
-                  Graduated! from Georgia Tech Master's in CS with specialization in Machine Learning
-                  </td>
+                  <td>Graduated! from Georgia Tech Master's in CS with specialization in Machine Learning</td>
                 </tr>
                 <tr>
                   <td>Aug 2024</td>
                     <td>
                       Selected as one of 10 students for the VIP Program to work at the{" "}
-                      <a href="https://coe.gatech.edu/academics/ai-for-engineering/ai-makerspace" target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#FF1493", textDecoration: "none" }}
-            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-          >
-                        AI MakerSpace Nexus
-                      </a>{" "}
-                      and access 304 NVIDIA H100/H200 GPUs, {" "}
-                      <a href="https://pace.gatech.edu/" target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#FF1493", textDecoration: "none" }}
-            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-          >
-                      
-                      
-                      Pace Labs </a>{" "}
-                      , lead by supervisors{" "}
-                      <a href="https://ece.gatech.edu/directory/gregory-krudysz" target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#FF1493", textDecoration: "none" }}
-            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-          >
-                        Gregory Krudysz
-                      </a>{" "}
-                      and{" "}
-                      <a href="https://ece.gatech.edu/directory/ghassan-alregib" target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#FF1493", textDecoration: "none" }}
-            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-          >
-                        Ghassan Alregib
-                      </a>
+                      <a href="https://coe.gatech.edu/academics/ai-for-engineering/ai-makerspace" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>AI MakerSpace Nexus</a>{" "}
+                      and access 304 NVIDIA H100/H200 GPUs, <a href="https://pace.gatech.edu/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Pace Labs </a>, lead by supervisors <a href="https://ece.gatech.edu/directory/gregory-krudysz" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Gregory Krudysz</a> and <a href="https://ece.gatech.edu/directory/ghassan-alregib" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Ghassan Alregib</a>
                     </td>
                 </tr>
                 <tr>
                   <td>Aug 2023</td>
                     <td>
-                      Joined Dr.{" "}
-                      <a href="https://www.cc.gatech.edu/people/david-joyner" target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#FF1493", textDecoration: "none" }}
-            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-          >
-                        David Joyner
-                      </a>
-                      's{" "}
-                      <a href="https://lucylabs.gatech.edu/" target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#FF1493", textDecoration: "none" }}
-            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-          >
-                        Lucy Labs
-                      </a>{" "}
-                      as a student researcher co-advised by{" "}
-                      <a href="https://www.cc.gatech.edu/people/alex-duncan" target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#FF1493", textDecoration: "none" }}
-            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-          >
-                        Alex Duncan
-                      </a>
+                      Joined Dr. <a href="https://www.cc.gatech.edu/people/david-joyner" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>David Joyner</a>'s <a href="https://lucylabs.gatech.edu/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Lucy Labs</a> as a student researcher co-advised by <a href="https://www.cc.gatech.edu/people/alex-duncan" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Alex Duncan</a>
                    </td>
                 </tr>
                 <tr>
                   <td>July 2023</td>
-                    <td>
-                    Selected among the top 4% applicants to attend the Amazon Machine Learning Summer School
-                  </td>
+                    <td>Selected among the top 4% applicants to attend the Amazon Machine Learning Summer School</td>
                 </tr>
               </tbody>
             </table>
         </div>
       </section>
-          
-
-
 
       <style jsx>{`
-        /* --- GLOBAL & THEME VARIABLES --- */
-        :global(html) { scroll-behavior: smooth; box-sizing: border-box; }
-        :global(*), :global(*::before), :global(*::after) { box-sizing: inherit; }
-        
-        :global([data-theme="light"]) {
-          --bg-navbar: #d7cdbf;
-          --text-navbar: #2c2c2c;
-          --text-navbar-hover: #7b8a7a;
-          --accent-navbar: #7b8a7a;
-          --bg-content: #f5f2ed;
-          --text-main: #444;
-          --text-heading: #4a524a;
-          --border-color: #e0d9ce;
-          --bg-toggle: #ebe4d8;
-        }
-        :global([data-theme="dark"]) {
-          --bg-navbar: #1e1e1e;
-          --text-navbar: #e0e0e0;
-          --text-navbar-hover: #ffcc66;
-          --accent-navbar: #ffcc66;
-          --bg-content: #2d2d2d;
-          --text-main: #c7c7c7;
-          --text-heading: #e0e0e0;
-          --border-color: #444;
-          --bg-toggle: #444;
-        }
+        /* --- GLOBAL VARIABLES ARE NOW IN globals.css --- */
         
         .main, .navbar, .main-content, .theme-toggle {
           transition: background-color 0.3s ease, color 0.3s ease;
@@ -319,36 +202,13 @@ export default function Home() {
         
         /* --- MOBILE ADJUSTMENTS --- */
         @media (max-width: 768px) {
-          /* 1. Layout fixes */
           .bio-container { flex-direction: column-reverse; }
           .bio-image { width: 70%; margin: 0 auto 2rem; }
-
-          /* 2. NAVBAR FIX - V2 */
-          .navbar {
-            padding: 0.5rem 0.5rem; /* Drastically reduce padding */
-          }
-          .navbar-content {
-            flex-direction: row;    /* Keep row */
-            align-items: center;    /* Vertically center */
-          }
-          .nav-links {
-            flex: 1;                /* Take up all available space */
-            display: flex;
-            flex-wrap: wrap;        /* ALLOW LINKS TO WRAP IF NEEDED */
-            gap: 0.6rem;            /* Smaller gap */
-            justify-content: flex-start; /* Align left */
-          }
-          .theme-toggle {
-            flex-shrink: 0;         /* DO NOT allow button to shrink/hide */
-            margin-left: 0.5rem;    /* Small gap between links and button */
-            width: 36px;            /* Slightly smaller button */
-            height: 36px;
-          }
-          .navbar a {
-            font-size: 0.85rem;     /* Smaller text size */
-          }
-
-          /* 3. Hero & Other Mobile fixes */
+          .navbar { padding: 0.5rem 0.5rem; }
+          .navbar-content { flex-direction: row; align-items: center; }
+          .nav-links { flex: 1; display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: flex-start; }
+          .theme-toggle { flex-shrink: 0; margin-left: 0.5rem; width: 36px; height: 36px; }
+          .navbar a { font-size: 0.85rem; }
           .hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
           .bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
           .overlay { height: 100%; }
