@@ -60,7 +60,7 @@ export default function Home() {
             </li>
             <li>
               <a
-                href="YOUR_GOOGLE_SCHOLAR_LINK_HERE"
+                href="https://scholar.google.com/citations?user=zhMtcooAAAAJ&hl=en&authuser=1"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -187,53 +187,56 @@ export default function Home() {
         .news-table td:first-child { font-weight: 500; color: var(--text-main); width: 140px; white-space: nowrap; }
         
         @media (max-width: 768px) {
-          /* 1. Fix the layout to stack correctly on mobile */
+          /* 1. Layout fixes */
           .bio-container { flex-direction: column-reverse; }
           .bio-image { width: 70%; margin: 0 auto 2rem; }
           .navbar-content { justify-content: space-around; }
-          
-          /* 2. FIX THE HERO HEIGHT */
-          /* Give the hero a minimum height so it doesn't collapse on phones */
-          .hero {
+
+          /* 2. Hero Height & Background */
+          .hero { 
             min-height: 60vh; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
           }
+          .bg-image { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+          }
+          .overlay { height: 100%; }
 
-          /* 3. FIX THE IMAGE */
-          /* Make the image cover the background instead of shrinking */
-          .bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+          /* 3. Text Positioning */
+          .content { 
+            position: relative; 
+            top: 0; 
+            left: 0; 
+            transform: none; 
+            width: 100%; 
+            padding: 1rem; 
           }
-          
-          /* 4. FIX THE TEXT POSITIONING */
-          /* Stop using absolute positioning on mobile */
-          .content {
-            position: relative;
-            top: 0;
-            left: 0;
-            transform: none;
-            width: 100%;
-            padding: 1rem;
-          }
-
-          /* 5. THE MAIN FIX: Remove the -200px shift */
           .card { 
             transform: none; 
-            padding: 2rem; 
+            padding: 2rem 1rem; /* Reduced side padding slightly */
             max-width: 90%; 
-            margin: 0 auto;
+            margin: 0 auto; 
           }
-          
-          /* Optional: Make the dark overlay cover the whole image on mobile for readability */
-          .overlay {
-            height: 100%;
+
+          /* 4. FIX FOR EMAIL BUTTON (The Links) */
+          .links {
+            display: flex;
+            flex-wrap: wrap;       /* Allows buttons to drop to the next line if tight */
+            justify-content: center;
+            gap: 0.8rem;           /* Adds space between the wrapped buttons */
+          }
+          .links a {
+            margin: 0;             /* Remove the old margin */
+            padding: 0.6rem 1rem;  /* Make buttons slightly smaller to fit better */
+            font-size: 1rem;       /* Slightly smaller text */
+            white-space: nowrap;   /* Prevents text inside button from breaking */
           }
         }
 
