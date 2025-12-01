@@ -36,7 +36,7 @@ export default function ProjectTemplate() {
 
           {/* --- TITLE HEADER --- */}
           <header>
-            <h1>Expensio: Receipt Tracker SaaS App</h1>
+            <h1>NLP Research in Online Education</h1>
             <p className="subtitle"></p>
           </header>
 
@@ -51,7 +51,7 @@ export default function ProjectTemplate() {
             <section className="description-section">
               <h2>Description</h2>
               <p>
-                A full stack AI agents app to calculate and optimize finances.              </p>
+                Performed topic modeling and conducted causal inference on 562 academic papers and published three research papers.              </p>
             </section>
 
             <section className="tools-section">

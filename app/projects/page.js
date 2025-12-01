@@ -25,7 +25,7 @@ export default function ProjectsPage() {
     {
       id: 2,
       title: "Hearteries",
-      description: "A mental health AI website where emotions meet art. A generative AI website that helps healing through art.",
+      description: "A generative AI website that helps healing through art.",
       skills: "ReactJS, vision transformers, GANS, Gemini",
       link: "/projects/hearteries",
       imageAlt: "Hearteries Cover"
