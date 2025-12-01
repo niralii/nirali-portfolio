@@ -54,7 +54,6 @@ export default function Home() {
             <li>
               <a href="/#about">Home</a>
             </li>
-            {/* THIS IS THE NEW PROJECTS LINK */}
             <li>
               <a href="/projects">Projects</a>
             </li>
@@ -90,7 +89,6 @@ export default function Home() {
             <div className="bio-text">
               <p>
                 Nirali Thakkar is a Master's student specializing in Machine Learning at Georgia Tech. She has a strong passion for artificial intelligence and its applications. 
-                {/* (Rest of your bio text) */}
               </p>
             </div>
             <div className="bio-image">
@@ -108,7 +106,6 @@ export default function Home() {
                 <td>Aug 2025</td>
                 <td>Graduated!</td>
               </tr>
-              {/* (Rest of your news items) */}
               <tr>
                 <td>May 2024</td>
                 <td>Published three research papers at ACM Learnign at Scale</td>
@@ -190,7 +187,28 @@ export default function Home() {
           /* 1. Layout fixes */
           .bio-container { flex-direction: column-reverse; }
           .bio-image { width: 70%; margin: 0 auto 2rem; }
-          .navbar-content { justify-content: space-around; }
+
+          /* ---------- NAVBAR FIXES ---------- */
+          .navbar {
+            padding: 0.8rem 1rem; /* Reduce outer padding to give more internal space */
+          }
+          .navbar-content { 
+            justify-content: space-between; 
+            flex-wrap: wrap; /* Allows items to wrap if they run out of space */
+            gap: 0.5rem;     /* Small gap between wrapped items */
+          }
+          .navbar ul {
+            gap: 0.8rem;    /* Reduced from 2rem to fit on small screens */
+            flex-wrap: wrap; /* Allow the links themselves to wrap */
+          }
+          .navbar a {
+            font-size: 0.95rem; /* Slightly smaller text for mobile */
+          }
+          .theme-toggle {
+            flex-shrink: 0; /* Ensures the button never gets squashed or hidden */
+            margin-left: auto; /* Pushes button to the right if wrapped */
+          }
+          /* ----------------------------------- */
 
           /* 2. Hero Height & Background */
           .hero { 
@@ -220,29 +238,25 @@ export default function Home() {
           }
           .card { 
             transform: none; 
-            padding: 2rem 1rem; /* Reduced side padding slightly */
+            padding: 2rem 1rem; 
             max-width: 90%; 
             margin: 0 auto; 
           }
 
-          /* 4. FIX FOR EMAIL BUTTON (The Links) */
+          /* 4. FIX FOR EMAIL BUTTON */
           .links {
             display: flex;
-            flex-wrap: wrap;       /* Allows buttons to drop to the next line if tight */
+            flex-wrap: wrap;       
             justify-content: center;
-            gap: 0.8rem;           /* Adds space between the wrapped buttons */
+            gap: 0.8rem;           
           }
           .links a {
-            margin: 0;             /* Remove the old margin */
-            padding: 0.6rem 1rem;  /* Make buttons slightly smaller to fit better */
-            font-size: 1rem;       /* Slightly smaller text */
-            white-space: nowrap;   /* Prevents text inside button from breaking */
+            margin: 0;             
+            padding: 0.6rem 1rem;  
+            font-size: 1rem;       
+            white-space: nowrap;   
           }
         }
-
-
-
-        
       `}</style>
     </main>
   );
