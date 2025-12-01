@@ -185,12 +185,61 @@ export default function Home() {
         .news-table td { padding: 1rem 0.5rem; border-bottom: 1px solid var(--border-color); vertical-align: top; }
         .news-table tr:last-child td { border-bottom: none; }
         .news-table td:first-child { font-weight: 500; color: var(--text-main); width: 140px; white-space: nowrap; }
+        
         @media (max-width: 768px) {
+          /* 1. Fix the layout to stack correctly on mobile */
           .bio-container { flex-direction: column-reverse; }
           .bio-image { width: 70%; margin: 0 auto 2rem; }
-          .card { padding: 2rem; max-width: 90%; }
           .navbar-content { justify-content: space-around; }
+          
+          /* 2. FIX THE HERO HEIGHT */
+          /* Give the hero a minimum height so it doesn't collapse on phones */
+          .hero {
+            min-height: 60vh; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          /* 3. FIX THE IMAGE */
+          /* Make the image cover the background instead of shrinking */
+          .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          
+          /* 4. FIX THE TEXT POSITIONING */
+          /* Stop using absolute positioning on mobile */
+          .content {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: none;
+            width: 100%;
+            padding: 1rem;
+          }
+
+          /* 5. THE MAIN FIX: Remove the -200px shift */
+          .card { 
+            transform: none; 
+            padding: 2rem; 
+            max-width: 90%; 
+            margin: 0 auto;
+          }
+          
+          /* Optional: Make the dark overlay cover the whole image on mobile for readability */
+          .overlay {
+            height: 100%;
+          }
         }
+
+
+
+        
       `}</style>
     </main>
   );
