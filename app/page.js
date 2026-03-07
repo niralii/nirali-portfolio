@@ -49,7 +49,7 @@ export default function Home() {
             <li><a href="/#about">Home</a></li>
             <li><a href="/projects">Projects</a></li>
             <li><a href="https://scholar.google.com/citations?user=zhMtcooAAAAJ&hl=en&authuser=1" target="_blank" rel="noreferrer">Publications</a></li>
-            <li><a href="https://drive.google.com/file/d/1Cd6J5RmIxGxvMCPlByUtHzDAKLw_fALM/view?usp=sharing" target="_blank" rel="noreferrer">Resume</a></li>
+            <li><a href="https://drive.google.com/file/d/1vmNe-W-qXDbvJlwpTG6o5Z2qTJxwRkjR/view?usp=sharing" target="_blank" rel="noreferrer">Resume</a></li>
           </ul>
           <button onClick={() => setTheme(theme === "light" ? "dark" : "light")} className="theme-toggle">
             {theme === "light" ? "🌙" : "☀️"}
@@ -63,11 +63,11 @@ export default function Home() {
           <div className="bio-container">
             <div className="bio-text">
               <p>
-                Nirali has recently graduated with a Master's in Machine Learning from Georgia Institute of Technology. She previously worked as a Machine Learning
-                Software Developer intern at AI Makerspace, Pace Labs, at her university where she automated data preprocessing for researchers to analyse large scale dataset within minutes. She has also worked as a NLP student researcher at Lucy Labs, where she published three research papers under the guidance of Dr. David Joyner and Alex Duncan. Her research focused on topic modeling, data coding, and causal inference to understand how AI and other factors have evolved in online education in the last ten years.  
+                Nirali has recently graduated with a Master's in Machine Learning from Georgia Institute of Technology. She previously worked as a student as a Machine Learning
+                Software Developer for the VIP Project at AI Makerspace, Pace Labs, at her university where she automated data preprocessing for researchers to analyse large scale dataset within minutes. She has also worked as a NLP student researcher at Lucy Labs, where she published three research papers under the guidance of Dr. David Joyner and Alex Duncan. Her research focused on topic modeling, data coding, and causal inference to understand how AI and other factors have evolved in online education in the last ten years.  
               </p>
               <p>
-                She has worked as a scientific reviewer at Cactus Communications (1 year 6 months) and as a frontend software developer at Gujarati Gaurav Charitable Trust of India (1 year). She has a total work experience of 2 years with an additonal 1 year including internships. 
+                She is currently working at Star Oxalate Pvt Ltd as a computer vision engineer and also worked there as an AI Research intern before joining full-time. She has experience working as a scientific reviewer at Cactus Communications (3 years) and as a frontend software developer at Gujarati Gaurav Charitable Trust of India (1 year). She has a total work experience of 4 years with an additonal 1 year including internships. 
               </p>
               <p>
                 Nirali loves exploring the intersection of AI and education and please reach out if you would like to collaborate on any projects or research!
@@ -82,8 +82,26 @@ export default function Home() {
             <table className="news-table">
               <tbody>
                 <tr>
+                  <td>Oct 2025</td>
+                    <td>
+                      Joined Star Oxalate Pvt Ltd as a full-time computer vision engineer
+                    </td>
+                </tr>
+                <tr>
                   <td>Aug 2025</td>
                   <td>Graduated! from Georgia Tech Master's in CS with specialization in Machine Learning</td>
+                </tr>
+                <tr>
+                  <td>Dec 2024</td>
+                    <td>
+                      Joined Star Oxalate Pvt Ltd as an AI Research Intern
+                    </td>
+                </tr>
+                <tr>
+                  <td>Nov 2024</td>
+                    <td>
+                      Completed 3 years at Cactus Communications as a scientific reviewer for CS research papers
+                    </td>
                 </tr>
                 <tr>
                   <td>Aug 2024</td>
