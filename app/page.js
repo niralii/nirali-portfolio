@@ -53,7 +53,7 @@ export default function Home() {
           </ul>
           <button onClick={() => setTheme(theme === "light" ? "dark" : "light")} className="theme-toggle">
             {theme === "light" ? "🌙" : "☀️"}
-          </button>
+          </button> 
         </div>
       </nav>
 
