@@ -63,7 +63,7 @@ export default function Home() {
           <div className="bio-container">
             <div className="bio-text">
               <p>
-                Nirali has recently graduated with a Master's in Machine Learning from Georgia Institute of Technology. She previously worked as a student as a Machine Learning
+                Nirali has recently graduated with a Master's in Machine Learning from Georgia Institute of Technology. She previously worked as a student Machine Learning
                 Software Developer for the VIP Project at AI Makerspace, Pace Labs, at her university where she automated data preprocessing for researchers to analyse large scale dataset within minutes. She has also worked as a NLP student researcher at Lucy Labs, where she published three research papers under the guidance of Dr. David Joyner and Alex Duncan. Her research focused on topic modeling, data coding, and causal inference to understand how AI and other factors have evolved in online education in the last ten years.  
               </p>
               <p>
