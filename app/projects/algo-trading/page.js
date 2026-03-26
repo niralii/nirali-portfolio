@@ -42,7 +42,7 @@ export default function ProjectTemplate() {
 
           <div className="hero-image">
             <img 
-              src="https://via.placeholder.com/800x400?text=Project+Hero+Image" 
+              src="\ml_trading_logo.PNG" 
               alt="Project Screenshot" 
             />
           </div>

@@ -25,7 +25,8 @@ export default function ProjectsPage() {
       description: "A full stack AI agents app to calculate and optimize finances.",
       skills: "Next.js 15, ReactJS, Inngest AgentKit, FAISS database, MCP, Amazon Bedrock",
       link: "/projects/expensio", 
-      imageAlt: "Expensio Cover"
+      imageAlt: "Expensio Cover",
+      imageSrc: "/Expensio_logo.PNG"
     },
     {
       id: 2,
@@ -33,7 +34,8 @@ export default function ProjectsPage() {
       description: "A generative AI website that helps healing through art.",
       skills: "ReactJS, vision transformers, GANS, Gemini",
       link: "/projects/hearteries",
-      imageAlt: "Hearteries Cover"
+      imageAlt: "Hearteries Cover",
+      imageSrc: "/hearteries_logo.png"
     },
     {
       id: 3,
@@ -41,7 +43,8 @@ export default function ProjectsPage() {
       description: "Built an MLOPs webapp for automation of preprocessing of datasets.",
       skills: "Vertex AI, Google Cloud, Streamlit, Hugging Face, Yolov8, Python",
       link: "/projects/ai-makerspace",
-      imageAlt: "AI MakerSpace Cover"
+      imageAlt: "AI MakerSpace Cover",
+      imageSrc: "/makerspace_logo.png"
     },
     {
       id: 4,
@@ -49,7 +52,8 @@ export default function ProjectsPage() {
       description: "Performed topic modeling and conducted causal inference on 562 academic papers and published three research papers.",
       skills: "Topic modeling, DAG, logistic propensity score matching, BERT, sentence transformer, quantitative analysis, Python",
       link: "/projects/nlp-research",
-      imageAlt: "NLP Research Cover"
+      imageAlt: "NLP Research Cover",
+      imageSrc: "/nlp_logo.jpg"
     },
     {
       id: 5,
@@ -57,7 +61,8 @@ export default function ProjectsPage() {
       description: "Built an online video calling platform for students to study together and get recommendations on their study habits.",
       skills: "ReactJS, Google Firebase, GraphRAG, LangChain, Neo4j Database, Finetuning of LLMs",
       link: "/projects/study-groups",
-      imageAlt: "Study Groups Cover"
+      imageAlt: "Study Groups Cover",
+      imageSrc: "\ed_tech_logo.png"
     },
     {
       id: 6,
@@ -65,7 +70,8 @@ export default function ProjectsPage() {
       description: "Coded in the simulated environment to score points against the AI model.",
       skills: "PPO, Actor Critic models, MAPPO, KL Divergence, Docker",
       link: "/projects/rl-football",
-      imageAlt: "Google Football Cover"
+      imageAlt: "Google Football Cover",
+      imageSrc: "/football_logo.jpg"
     },
     {
       id: 7,
@@ -73,7 +79,8 @@ export default function ProjectsPage() {
       description: "Used deep Q learning for lunar lander to land successfully in the openai gym environment.",
       skills: "Deep Q Learning",
       link: "/projects/lunar-lander",
-      imageAlt: "Lunar Lander Cover"
+      imageAlt: "Lunar Lander Cover",
+      imageSrc: "/lunar_logo.png"
     },
     {
       id: 8,
@@ -81,7 +88,8 @@ export default function ProjectsPage() {
       description: "Time-series analysis of IBM and JP Morgan stocks from 2009–2015 using supervised learning and Q-learning.",
       skills: "Python, web scraping, data visualization",
       link: "/projects/algo-trading",
-      imageAlt: "Algo Trading Cover"
+      imageAlt: "Algo Trading Cover",
+      imageSrc: "/ml_trading_logo.PNG"
     },
     {
       id: 9,
@@ -89,7 +97,8 @@ export default function ProjectsPage() {
       description: "Developed a full-stack mobile application using React Native and AR to teach geography to school children.",
       skills: "React Native",
       link: "/projects/wander-ar",
-      imageAlt: "WanderAR Cover"
+      imageAlt: "WanderAR Cover",
+      imageSrc: "/wander_ar_logo.PNG"
     },
   ];
 
@@ -137,10 +146,11 @@ export default function ProjectsPage() {
               <div key={project.id} className="project-card">
                 <div className="image-container">
                   <img 
-                    src={`https://via.placeholder.com/400x250?text=${encodeURIComponent(project.title)}`}
-                    alt={project.imageAlt} 
+                  src={project.imageSrc} 
+                  alt={project.imageAlt} 
                   />
                 </div>
+                
                 <div className="card-content">
                   <h2>{project.title}</h2>
                   <p className="description">{project.description}</p>

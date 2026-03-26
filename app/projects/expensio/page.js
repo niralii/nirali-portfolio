@@ -39,10 +39,11 @@ export default function ProjectTemplate() {
             <h1>Expensio: Receipt Tracker SaaS App</h1>
             <p className="subtitle"></p>
           </header>
+          
 
           <div className="hero-image">
             <img 
-              src="https://via.placeholder.com/800x400?text=Project+Hero+Image" 
+              src="Expensio_logo.PNG"
               alt="Project Screenshot" 
             />
           </div>

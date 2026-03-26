@@ -42,7 +42,7 @@ export default function ProjectTemplate() {
 
           <div className="hero-image">
             <img 
-              src="https://via.placeholder.com/800x400?text=Project+Hero+Image" 
+              src="\lunar_logo.png" 
               alt="Project Screenshot" 
             />
           </div>
