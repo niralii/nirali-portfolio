@@ -43,7 +43,7 @@ export default function ProjectTemplate() {
 
           <div className="hero-image">
             <img 
-              src="Expensio_logo.PNG"
+              src="\Expensio_logo.PNG"
               alt="Project Screenshot" 
             />
           </div>
