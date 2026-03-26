@@ -67,7 +67,7 @@ export default function Home() {
                 Software Developer for the VIP Project at AI Makerspace, Pace Labs, at her university where she automated data preprocessing for researchers to analyse large scale dataset within minutes. She has also worked as a NLP student researcher at Lucy Labs, where she published three research papers under the guidance of Dr. David Joyner and Alex Duncan. Her research focused on topic modeling, data coding, and causal inference to understand how AI and other factors have evolved in online education in the last ten years.  
               </p>
               <p>
-                She is currently working at Star Oxalate Pvt Ltd as a computer vision engineer and also worked there as an AI Research intern before joining full-time. She has experience working as a scientific reviewer at Cactus Communications (3 years) and as a frontend software developer at Gujarati Gaurav Charitable Trust of India (1 year). She has a total work experience of 4 years with an additonal 1 year including internships. 
+                She is currently working at Nirchem Dyes and Chemicals as a computer vision engineer and earlier worked at Star Oxalate Pvt Ltd as a Generative AI Engineer. She has experience working as a scientific reviewer at Cactus Communications (1.5 years) and as a frontend software developer at Gujarati Gaurav Charitable Trust of India (1 year). She has a total work experience of 4 years with an additonal 1 year including internships. 
               </p>
               <p>
                 Nirali loves exploring the intersection of AI and education and please reach out if you would like to collaborate on any projects or research!
@@ -82,9 +82,11 @@ export default function Home() {
             <table className="news-table">
               <tbody>
                 <tr>
-                  <td>Oct 2025</td>
+                  <td>Jan 2026</td>
                     <td>
-                      Joined Star Oxalate Pvt Ltd as a full-time computer vision engineer
+                    Joined {" "}
+                      <a href="https://sites.gatech.edu/human-augmented-analytics-group/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Human Augmented Analytics Group (HAAG Lab)</a>{" "} as an AI Researcher supervised by {" "}
+                      <a href="https://www.linkedin.com/in/anind-d/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Dr. Anind Dey</a>{" "} to build an AI Mental Health Model for students
                     </td>
                 </tr>
                 <tr>
@@ -92,17 +94,14 @@ export default function Home() {
                   <td>Graduated! from Georgia Tech Master's in CS with specialization in Machine Learning</td>
                 </tr>
                 <tr>
-                  <td>Dec 2024</td>
+                  <td>March 2025</td>
                     <td>
-                      Joined Star Oxalate Pvt Ltd as an AI Research Intern
+                      Joined {" "}
+                      <a href="https://nirchem.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Nirchem Dyes and Chemicals Pvt Ltd</a>{" "} as a full-time computer vision engineer
                     </td>
                 </tr>
-                <tr>
-                  <td>Nov 2024</td>
-                    <td>
-                      Completed 3 years at Cactus Communications as a scientific reviewer for CS research papers
-                    </td>
-                </tr>
+                
+                
                 <tr>
                   <td>Aug 2024</td>
                     <td>
@@ -110,6 +109,12 @@ export default function Home() {
                       <a href="https://coe.gatech.edu/academics/ai-for-engineering/ai-makerspace" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>AI MakerSpace Nexus</a>{" "}
                       and access 304 NVIDIA H100/H200 GPUs, <a href="https://pace.gatech.edu/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Pace Labs </a>, lead by supervisors <a href="https://ece.gatech.edu/directory/gregory-krudysz" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Gregory Krudysz</a> and <a href="https://ece.gatech.edu/directory/ghassan-alregib" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Ghassan Alregib</a>
                     </td>
+                </tr>
+                <tr>
+                  <td>Jan 2024</td>
+                    <td>
+                      Joined {" "}
+                      <a href="https://staroxalate.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Star Oxalate Pvt Ltd</a>{" "} as a Generative AI Engineer                    </td>
                 </tr>
                 <tr>
                   <td>Aug 2023</td>
@@ -120,6 +125,12 @@ export default function Home() {
                 <tr>
                   <td>July 2023</td>
                     <td>Selected among the top 4% applicants to attend the Amazon Machine Learning Summer School</td>
+                </tr>
+                <tr>
+                  <td>April 2023</td>
+                    <td>
+                      Completed 1.5 years at Cactus Communications as a scientific reviewer for CS research papers
+                    </td>
                 </tr>
               </tbody>
             </table>
