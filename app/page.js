@@ -124,12 +124,14 @@ export default function Home() {
                 </tr>
                 <tr>
                   <td>July 2023</td>
-                    <td>Selected among the top 4% applicants to attend the Amazon Machine Learning Summer School</td>
+                    <td>Selected among the top 4% applicants to attend the Amazon Machine Learning Summer School {" "}
+                      <a href="https://drive.google.com/file/d/1ymvO_ebRtYIJzDW-XS0RJS4GkYT8nPTF/view?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Certificate</a>{" "}</td>
                 </tr>
                 <tr>
                   <td>April 2023</td>
                     <td>
-                      Completed 1.5 years at Cactus Communications as a scientific reviewer for CS research papers
+                      Completed 1.5 years at  {" "}
+                      <a href="https://cactusglobal.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Cactus Communications</a>{" "} as a scientific reviewer for CS research papers
                     </td>
                 </tr>
               </tbody>
