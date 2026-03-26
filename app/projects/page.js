@@ -53,7 +53,7 @@ export default function ProjectsPage() {
       skills: "Topic modeling, DAG, logistic propensity score matching, BERT, sentence transformer, quantitative analysis, Python",
       link: "/projects/nlp-research",
       imageAlt: "NLP Research Cover",
-      imageSrc: "/nlp_logo.jpg"
+      imageSrc: "/NLP_logo.jpg"
     },
     {
       id: 5,
@@ -62,7 +62,7 @@ export default function ProjectsPage() {
       skills: "ReactJS, Google Firebase, GraphRAG, LangChain, Neo4j Database, Finetuning of LLMs",
       link: "/projects/study-groups",
       imageAlt: "Study Groups Cover",
-      imageSrc: "\ed_tech_logo.png"
+      imageSrc: "\ed_tech_logo.PNG"
     },
     {
       id: 6,
