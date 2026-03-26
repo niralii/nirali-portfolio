@@ -107,7 +107,7 @@ export default function Home() {
                     <td>
                       Selected as one of 10 students for the VIP Program to work at the{" "}
                       <a href="https://coe.gatech.edu/academics/ai-for-engineering/ai-makerspace" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>AI MakerSpace Nexus</a>{" "}
-                      and access 304 NVIDIA H100/H200 GPUs, <a href="https://pace.gatech.edu/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Pace Labs </a>, lead by supervisors <a href="https://ece.gatech.edu/directory/gregory-krudysz" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Gregory Krudysz</a> and <a href="https://ece.gatech.edu/directory/ghassan-alregib" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Ghassan Alregib</a>
+                      and access 304 NVIDIA H100/H200 GPUs, <a href="https://pace.gatech.edu/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Pace Labs</a>, lead by supervisors <a href="https://ece.gatech.edu/directory/gregory-krudysz" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Gregory Krudysz</a> and <a href="https://ece.gatech.edu/directory/ghassan-alregib" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Ghassan Alregib</a>
                     </td>
                 </tr>
                 <tr>
@@ -119,7 +119,7 @@ export default function Home() {
                 <tr>
                   <td>Aug 2023</td>
                     <td>
-                      Joined Dr. <a href="https://www.cc.gatech.edu/people/david-joyner" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>David Joyner</a>'s <a href="https://lucylabs.gatech.edu/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Lucy Labs</a> as a student researcher co-advised by <a href="https://www.cc.gatech.edu/people/alex-duncan" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Alex Duncan</a>
+                      Joined <a href="https://www.cc.gatech.edu/people/david-joyner" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Dr. David Joyner</a>'s <a href="https://lucylabs.gatech.edu/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Lucy Labs</a> as a student researcher co-advised by <a href="https://www.cc.gatech.edu/people/alex-duncan" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Alex Duncan</a>
                    </td>
                 </tr>
                 <tr>
