@@ -29,105 +29,104 @@ export default function ProjectTemplate() {
       <main className="project-detail-main">
         <div className="container">
           
-          {/* --- BACK LINK --- */}
           <Link href="/projects" className="back-link">
             &larr; Back to Projects
           </Link>
 
-          {/* --- TITLE HEADER --- */}
           <header>
             <h1>NLP Research in Online Education</h1>
-            <p className="subtitle">Analyzing academic trends using BERTopic and Neural VAEs</p>
+            <p className="subtitle">Topic Modeling & Causal Inference on ACM Learning at Scale (L@S) Papers</p>
           </header>
 
           <div className="hero-image">
-            <img 
-              src="/NLP_logo.jpg" 
-              alt="Project Screenshot" 
-            />
+            <img src="/NLP_logo.jpg" alt="NLP Project Header" />
+          </div>
+
+          <div className="button-grid">
+            <a href="https://huggingface.co/spaces/gtech13/Topic-Modeling-BERTopic-Math-Visualization" target="_blank" rel="noopener noreferrer" className="primary-btn">Live Demo: BERTopic</a>
+            <a href="https://huggingface.co/spaces/gtech13/Topic-Modeling-VAE-Math-Visualization" target="_blank" rel="noopener noreferrer" className="primary-btn">Live Demo: Neural VAE</a>
+            <a href="https://huggingface.co/spaces/gtech13/Topic-Modeling-BERTopic-Math-Visualization/tree/main" target="_blank" rel="noopener noreferrer" className="secondary-btn">Hugging Face: BERTopic Code</a>
+            <a href="https://huggingface.co/spaces/gtech13/Topic-Modeling-VAE-Math-Visualization/tree/main" target="_blank" rel="noopener noreferrer" className="secondary-btn">Hugging Face: VAE Code</a>
           </div>
 
           <article className="content">
             <section className="description-section">
-              <h2>Project Overview</h2>
+              <h2>Project Context</h2>
               <p>
-                My goal was to analyze research trends across 562 academic papers from the ACM Learning at Scale conference. I started with a manually labeled ground truth dataset to verify themes. 
+                The objective was to analyze longitudinal research trends across 562 academic papers from the ACM Learning at Scale conference. I established a manually labeled ground truth dataset to validate cluster coherence and spatial density.
               </p>
               <p>
-                To explore automated categorization, I built two distinct topic modeling pipelines. Currently, the live demos process a single paper abstract to visually demonstrate how the math works step by step.
+                To achieve robust semantic segmentation, I engineered two distinct topic modeling pipelines. To demonstrate the underlying mathematics, the live deployments evaluate the following sample abstract:
               </p>
+              <blockquote className="abstract-quote">
+                "Students who registered for the Mapping with Google massive open online course (MOOC) were asked several questions during the registration process to identify prior experience with eleven skills as well as their goals for registering for the course. At the end of the course, we compared students' self reports of goal achievement with behavioral click-stream analysis. In addition, we assessed how well prior skill in a subject predicts a student's course completion and found no correlation. Our research shows that students who completed course activities were more likely to earn certificates of completion than peers who did not."
+              </blockquote>
             </section>
 
+            {/* --- BERTOPIC SECTION --- */}
             <section className="description-section">
-              <h2>Method 1: BERTopic</h2>
+              <h2>Pipeline 1: BERTopic Architecture</h2>
+              <div className="architecture-wrapper">
+                <img src="/image_1.png" alt="BERTopic Architecture Diagram" className="architecture-img" />
+              </div>
               <p>
-                BERTopic is a pipeline that groups text based on meaning. If an abstract talks about student dropout rates, here is how the model processes it:
+                Because the abstract only contains 4 sentences, this breakdown highlights the Auto-Fallback Routing engineered to prevent topological math from crashing on micro-datasets.
               </p>
               <ul>
-                <li><strong>Read:</strong> The model reads the abstract and turns sentences into data points.</li>
-                <li><strong>Map:</strong> It places sentences with similar meanings close together on a map.</li>
-                <li><strong>Group:</strong> It draws hard boundaries around clusters of similar sentences.</li>
-                <li><strong>Extract:</strong> It looks inside each cluster, filters out common filler words, and extracts the most unique words to name the theme.</li>
+                <li><strong>1. Semantic Embedding:</strong> The pipeline splits the abstract into 4 distinct sentences. These strings pass through the frozen BERT encoder. Mean-pooling squashes the token outputs, transforming each sentence into a dense 384D vector. S1’s vector captures the spatial geometry of "platform registration," while S3’s vector captures "predictive correlation."</li>
+                <li><strong>2. Dimensionality Reduction & Clustering:</strong> The engine checks dataset size (N=4). Since topological algorithms (UMAP/HDBSCAN) require larger neighborhoods, the pipeline dynamically routes the vectors to fallback algorithms. PCA deterministically projects the 384 dimensions down to a 2D plane. K-Means initializes centroids and forces the 4 coordinates into distinct buckets using Euclidean distance.</li>
+                <li><strong>3. Mega-Document Aggregation & Vectorization:</strong> BERTopic concatenates all sentences assigned to Theme 1 into a single "Mega-Document," doing the same for Themes 2 and 3. A CountVectorizer tokenizes these Mega-Documents into unigrams and bigrams (e.g., <code>click stream</code>). A dynamic <code>max_df</code> threshold autonomously deletes redundant meta-noise (like 'students' or 'course') appearing across all buckets.</li>
+                <li><strong>4. c-TF-IDF Extraction & MMR Reranking:</strong> Class-based TF-IDF scores the vocabulary, measuring term frequency inside Theme 1 and penalizing words that also appear in Themes 2 and 3. Terms like <code>MOOC</code> and <code>certificates</code> receive massive score spikes in their respective clusters. Maximal Marginal Relevance (MMR) applies a cosine similarity penalty to the top-scoring words, eliminating redundant synonyms to yield a diverse semantic representation for each theme.</li>
               </ul>
             </section>
 
+            {/* --- VAE SECTION --- */}
             <section className="description-section">
-              <h2>Method 2: Variational Autoencoder (VAE)</h2>
+              <h2>Pipeline 2: Variational Autoencoder (VAE)</h2>
+              <div className="architecture-wrapper">
+                <img src="/image_2.png" alt="Neural VAE Architecture Diagram" className="architecture-img" />
+              </div>
               <p>
-                The VAE acts like a translator playing a guessing game. Instead of grouping sentences, it tries to rebuild the vocabulary from scratch.
+                The Neural VAE relies on Intra-Paper Analysis, splitting the abstract into 4 sentences to track how the narrative shifts from platform setup to analytical results.
               </p>
               <ul>
-                <li><strong>Compress:</strong> The neural network reads the text and shrinks the meaning down into a tiny set of coordinates.</li>
-                <li><strong>Sample:</strong> It picks a point near those coordinates to define a topic mixture.</li>
-                <li><strong>Expand:</strong> A second neural network takes that point and tries to guess every word that belongs in the abstract.</li>
-                <li><strong>Score:</strong> It compares its guessed words against the actual words in the text. It learns from its mistakes to make better guesses next time.</li>
+                <li><strong>1. Dual Input Prep:</strong> The pipeline splits the data. Path A passes the raw sentences to BERT, extracting four 384D semantic vectors. Path B filters out academic noise to create normalized target arrays (e.g., S2’s target strictly becomes <code>[behavioral: 0.25, click-stream: 0.25, analysis: 0.25, achievement: 0.25]</code>).</li>
+                <li><strong>2. Contextual Encoding:</strong> The neural network encoder ingests the 384D BERT vectors. It processes the semantic differences between S1 and S2, compressing them into a lower-dimensional latent space. It outputs a mean (μ) and variance (σ) for each sentence, pushing their coordinates into completely different areas of the topic space.</li>
+                <li><strong>3. Latent Sampling:</strong> The model applies the reparameterization trick (z = μ + σ · ε) to safely sample a point inside the probability cloud for each sentence. Softmax converts these raw coordinates into strict percentages. S1 becomes <code>[95% Topic 1, 3% Topic 2, 2% Topic 3]</code>, while S2 becomes <code>[2% Topic 1, 96% Topic 2, 2% Topic 3]</code>.</li>
+                <li><strong>4. Decoding and Optimization:</strong> The model multiplies S2's 96% mixture against the Decoder's internal Topic-Word matrix to guess the vocabulary. The ELBO objective function calculates the KL-Divergence between the Decoder's guess and S2's actual target. If the Decoder guesses incorrectly, the reconstruction loss explodes. The Adam optimizer executes backpropagation, adjusting matrix weights so Topic 1 officially claims the platform words (<code>MOOC, Google</code>) and Topic 2 claims the methodology words (<code>click-stream, behavioral</code>).</li>
               </ul>
             </section>
 
             <section className="tools-section">
-              <h2>Tools Used</h2>
+              <h2>Tech Stack</h2>
               <div className="tech-stack-list">
                 <span>Python</span>
                 <span>PyTorch</span>
                 <span>BERTopic</span>
-                <span>Hugging Face</span>
+                <span>Hugging Face Transformers</span>
+                <span>Scikit-Learn</span>
                 <span>Streamlit</span>
               </div>
             </section>
-
-            <section className="links-section" style={{ marginBottom: "3rem" }}>
-              <h2>Project Links</h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent-color)", fontWeight: "600" }}>🔗 Demo 1: BERTopic Pipeline</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent-color)", fontWeight: "600" }}>🔗 Demo 2: Neural VAE Model</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-sub)" }}>💻 Hugging Face Repo: BERTopic Code</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-sub)" }}>💻 Hugging Face Repo: VAE Code</a>
-              </div>
-            </section>
-
-            <div className="disclaimer-box">
-              <p>This page will be updated soon, please refer to the resume for further details.</p>
-            </div>
           </article>
         </div>
       </main>
 
       <style jsx>{`
-        /* --- THEME VARIABLES --- */
         :global([data-theme="light"]) {
           --bg-main: #f5f2ed;
           --text-main: #2c2c2c;
           --text-sub: #555;
           --text-heading: #4a524a;
           --card-bg: #ffffff;
-          --card-border: #e0d9ce;
           --accent-color: #7b8a7a;
           --accent-hover: #4a524a;
           --btn-bg: rgba(255, 255, 255, 0.8);
           --btn-hover: #ffffff;
           --tag-bg: #e8e4dc;
-          --disclaimer-text: #666;
-          --disclaimer-border: #dcdcdc;
+          --quote-bg: #eae6df;
+          --quote-border: #7b8a7a;
+          --img-border: #e0d9ce;
         }
 
         :global([data-theme="dark"]) {
@@ -136,14 +135,14 @@ export default function ProjectTemplate() {
           --text-sub: #b0b0b0;
           --text-heading: #f0f0f0;
           --card-bg: #1e1e1e;
-          --card-border: #444;
           --accent-color: #ffcc66;
           --accent-hover: #ffe082;
           --btn-bg: #444;
           --btn-hover: #555;
           --tag-bg: #444;
-          --disclaimer-text: #999;
-          --disclaimer-border: #444;
+          --quote-bg: #3a3a3a;
+          --quote-border: #ffcc66;
+          --img-border: #444;
         }
 
         .page-wrapper {
@@ -164,7 +163,7 @@ export default function ProjectTemplate() {
 
         .back-link {
           display: inline-block;
-          margin-bottom: 120px; 
+          margin-bottom: 60px; 
           color: var(--accent-color);
           text-decoration: none;
           font-weight: 600;
@@ -198,37 +197,74 @@ export default function ProjectTemplate() {
           transform: scale(1.1); background: var(--btn-hover);
         }
 
-        header { margin-bottom: 2rem; margin-top: 1.8rem; }
+        header { margin-bottom: 2rem; }
         h1 { font-size: 2.5rem; color: var(--text-heading); margin-bottom: 0.5rem; line-height: 1.2; }
         .subtitle { font-size: 1.2rem; color: var(--text-sub); }
-        h2 { font-size: 1.5rem; color: var(--text-heading); margin-bottom: 0.8rem; }
+        h2 { font-size: 1.4rem; color: var(--text-heading); margin-bottom: 1.2rem; margin-top: 3rem;}
 
         .hero-image {
-          width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 3rem;
+          width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;
           box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
         .hero-image img { width: 100%; height: auto; display: block; }
 
-        .content section { margin-bottom: 2.5rem; }
-        p { font-size: 1.1rem; line-height: 1.7; color: var(--text-main); margin-bottom: 1rem; }
-        
-        ul { margin-top: 0.5rem; margin-bottom: 1.5rem; padding-left: 1.5rem; }
-        li { font-size: 1.1rem; line-height: 1.7; color: var(--text-main); margin-bottom: 0.5rem; }
+        .architecture-wrapper {
+          width: 100%;
+          margin: 1.5rem 0 2rem 0;
+          border: 1px solid var(--img-border);
+          border-radius: 8px;
+          overflow: hidden;
+          background: #fff; /* Architecture diagrams usually look best on white backgrounds */
+          box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .architecture-img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
 
-        .tech-stack-list { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+        .button-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+          margin-bottom: 3rem;
+        }
+        .primary-btn, .secondary-btn {
+          padding: 0.8rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; text-align: center; transition: opacity 0.2s;
+        }
+        .primary-btn { background-color: var(--accent-color); color: #fff; }
+        :global([data-theme="dark"]) .primary-btn { color: #2d2d2d; }
+        .secondary-btn { background-color: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); }
+        .primary-btn:hover, .secondary-btn:hover { opacity: 0.8; }
+
+        .abstract-quote {
+          background-color: var(--quote-bg);
+          border-left: 4px solid var(--quote-border);
+          padding: 1rem 1.5rem;
+          margin: 1.5rem 0;
+          border-radius: 4px;
+          font-style: italic;
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+
+        .content section { margin-bottom: 2.5rem; }
+        p { font-size: 1.05rem; line-height: 1.7; color: var(--text-main); margin-bottom: 1rem; }
+        
+        ul { margin-top: 0.5rem; margin-bottom: 1.5rem; padding-left: 1.2rem; }
+        li { font-size: 1.05rem; line-height: 1.7; color: var(--text-main); margin-bottom: 1rem; }
+        code { background-color: var(--tag-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.9rem;}
+
+        .tech-stack-list { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;}
         .tech-stack-list span {
           background-color: var(--tag-bg); color: var(--text-main);
           padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.95rem; font-weight: 500;
         }
 
-        .disclaimer-box {
-          margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--disclaimer-border);
-          font-style: italic; color: var(--disclaimer-text); font-size: 0.95rem;
-        }
-
         @media (max-width: 768px) {
           .project-detail-main { padding: 5rem 1.5rem; }
           h1 { font-size: 2rem; }
+          .button-grid { grid-template-columns: 1fr; }
         }
       `}</style>
     </div>
