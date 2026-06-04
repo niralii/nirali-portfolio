@@ -35,7 +35,7 @@ export default function ProjectTemplate() {
 
           <header>
             <h1>NLP Research in Online Education</h1>
-            <p className="subtitle">Topic Modeling & Causal Inference on ACM Learning at Scale (L@S) Papers</p>
+            <p className="subtitle">Topic Modeling on ACM Learning at Scale (L@S) Papers</p>
           </header>
 
           <div className="hero-image">
@@ -53,7 +53,7 @@ export default function ProjectTemplate() {
             <section className="description-section">
               <h2>Project Context</h2>
               <p>
-                The objective was to analyze longitudinal research trends across 562 academic papers from the ACM Learning at Scale conference. I established a manually labeled ground truth dataset to validate cluster coherence and spatial density.
+                The objective of this project is to analyze longitudinal research trends across 562 academic papers from the ACM Learning at Scale conference. I established a manually labeled ground truth dataset to validate cluster coherence and spatial density.
               </p>
               <p>
                 To achieve robust semantic segmentation, I engineered two distinct topic modeling pipelines. To demonstrate the underlying mathematics, the live deployments evaluate the following sample abstract:
@@ -73,10 +73,33 @@ export default function ProjectTemplate() {
                 Because the abstract only contains 4 sentences, this breakdown highlights the Auto-Fallback Routing engineered to prevent topological math from crashing on micro-datasets.
               </p>
               <ul>
-                <li><strong>1. Semantic Embedding:</strong> The pipeline splits the abstract into 4 distinct sentences. These strings pass through the frozen BERT encoder. Mean-pooling squashes the token outputs, transforming each sentence into a dense 384D vector. S1’s vector captures the spatial geometry of "platform registration," while S3’s vector captures "predictive correlation."</li>
+                <li><strong>1. Semantic Embedding:</strong> The pipeline splits the abstract into 4 distinct sentences. These strings pass through the frozen BERT encoder. Mean-pooling squashes the token outputs, transforming each sentence into a dense 384D vector. Document/Sentence 1’s vector captures the spatial geometry of "platform registration," while Document/Sentence 3’s vector captures "predictive correlation."</li>
                 <li><strong>2. Dimensionality Reduction & Clustering:</strong> The engine checks dataset size (N=4). Since topological algorithms (UMAP/HDBSCAN) require larger neighborhoods, the pipeline dynamically routes the vectors to fallback algorithms. PCA deterministically projects the 384 dimensions down to a 2D plane. K-Means initializes centroids and forces the 4 coordinates into distinct buckets using Euclidean distance.</li>
-                <li><strong>3. Mega-Document Aggregation & Vectorization:</strong> BERTopic concatenates all sentences assigned to Theme 1 into a single "Mega-Document," doing the same for Themes 2 and 3. A CountVectorizer tokenizes these Mega-Documents into unigrams and bigrams (e.g., <code>click stream</code>). A dynamic <code>max_df</code> threshold autonomously deletes redundant meta-noise (like 'students' or 'course') appearing across all buckets.</li>
+                <li><strong>3. Mega-Document Aggregation & Vectorization:</strong> BERTopic concatenates all sentences assigned to Theme 1 into a single "Mega-Document," doing the same for Themes 2 and 3. Total mega-documents = #no of topics.  A CountVectorizer tokenizes these Mega-Documents into unigrams and bigrams (e.g., <code>click stream</code>). A cutomized dynamic <code>max_df</code> threshold autonomously deletes redundant meta-noise (like 'students' or 'course') appearing across all buckets by deleting words appearing in greater than 85% of the total text.</li>
                 <li><strong>4. c-TF-IDF Extraction & MMR Reranking:</strong> Class-based TF-IDF scores the vocabulary, measuring term frequency inside Theme 1 and penalizing words that also appear in Themes 2 and 3. Terms like <code>MOOC</code> and <code>certificates</code> receive massive score spikes in their respective clusters. Maximal Marginal Relevance (MMR) applies a cosine similarity penalty to the top-scoring words, eliminating redundant synonyms to yield a diverse semantic representation for each theme.</li>
+
+                <li style={{ marginTop: "1.5rem" }}>
+                  <strong>5. Post-Hoc Evaluation Metrics (KPIs):</strong> Because unsupervised clustering pipelines lack a neural "Loss" function, I engineered a mathematical suite to validate the discovered themes:
+                  <ul style={{ marginTop: "0.8rem", paddingLeft: "1.2rem", borderLeft: "2px solid var(--accent-color)" }}>
+                    <li style={{ marginBottom: "0.8rem" }}>
+                      <strong>Topic Diversity:</strong> Measures the uniqueness of the extracted vocabulary.<br/>
+                      <code>Math: Unique Words / Total Words</code> <span style={{color: "var(--text-sub)", fontSize: "0.95rem", marginLeft: "10px"}}>Target: 1.0 (No redundancy)</span>
+                    </li>
+                    <li style={{ marginBottom: "0.8rem" }}>
+                      <strong>NPMI Coherence:</strong> Measures external semantic logic by calculating the joint probability of the topic's words appearing together in real-world contexts.<br/>
+                      <code>Math: log( P(x,y) / P(x)P(y) ) / -log P(x,y)</code> <span style={{color: "var(--text-sub)", fontSize: "0.95rem", marginLeft: "10px"}}>Target: &gt; 0.1</span>
+                    </li>
+                    <li style={{ marginBottom: "0.8rem" }}>
+                      <strong>UMass Coherence:</strong> Measures internal dataset logic. It evaluates if the top words co-occur strictly inside the specific documents provided to the model.<br/>
+                      <code>Math: log ( (P(x,y) + ε) / P(x) )</code> <span style={{color: "var(--text-sub)", fontSize: "0.95rem", marginLeft: "10px"}}>Target: Closer to 0</span>
+                    </li>
+                    <li>
+                      <strong>Silhouette Score:</strong> Measures the geometric separation of the document clusters in the latent space (intra-cluster density vs. nearest-cluster distance).<br/>
+                      <code>Math: (b - a) / max(a, b)</code> <span style={{color: "var(--text-sub)", fontSize: "0.95rem", marginLeft: "10px"}}>Target: &gt; 0.0</span>
+                    </li>
+                  </ul>
+                </li>
+              
               </ul>
             </section>
 
@@ -90,11 +113,81 @@ export default function ProjectTemplate() {
                 The Neural VAE relies on Intra-Paper Analysis, splitting the abstract into 4 sentences to track how the narrative shifts from platform setup to analytical results.
               </p>
               <ul>
-                <li><strong>1. Dual Input Prep:</strong> The pipeline splits the data. Path A passes the raw sentences to BERT, extracting four 384D semantic vectors. Path B filters out academic noise to create normalized target arrays (e.g., S2’s target strictly becomes <code>[behavioral: 0.25, click-stream: 0.25, analysis: 0.25, achievement: 0.25]</code>).</li>
+                <li><strong>1. Dual Input Prep:</strong> The pipeline splits the data. Path A passes the raw sentences to BERT, extracting four 384D semantic vectors. Path B applies preprocessing to remove stop words and build BoW which is the vocabulary. Each sentence undergoes L1 normalization to compute normalized target arrays whose probability distribution for each array sums up to 1 (e.g., S2’s normalized target array becomes <code>[behavioral: 0.25, click-stream: 0.25, analysis: 0.25, achievement: 0.25]</code>).</li>
                 <li><strong>2. Contextual Encoding:</strong> The neural network encoder ingests the 384D BERT vectors. It processes the semantic differences between S1 and S2, compressing them into a lower-dimensional latent space. It outputs a mean (μ) and variance (σ) for each sentence, pushing their coordinates into completely different areas of the topic space.</li>
-                <li><strong>3. Latent Sampling:</strong> The model applies the reparameterization trick (z = μ + σ · ε) to safely sample a point inside the probability cloud for each sentence. Softmax converts these raw coordinates into strict percentages. S1 becomes <code>[95% Topic 1, 3% Topic 2, 2% Topic 3]</code>, while S2 becomes <code>[2% Topic 1, 96% Topic 2, 2% Topic 3]</code>.</li>
-                <li><strong>4. Decoding and Optimization:</strong> The model multiplies S2's 96% mixture against the Decoder's internal Topic-Word matrix to guess the vocabulary. The ELBO objective function calculates the KL-Divergence between the Decoder's guess and S2's actual target. If the Decoder guesses incorrectly, the reconstruction loss explodes. The Adam optimizer executes backpropagation, adjusting matrix weights so Topic 1 officially claims the platform words (<code>MOOC, Google</code>) and Topic 2 claims the methodology words (<code>click-stream, behavioral</code>).</li>
+                <li><strong>3. Latent Sampling:</strong> z is a coordinate in topic space sampled to predict the topics. Size of z: (1, No. of topics). ε is random noise drawn from N(0,I) so gradients flow safely backward through μ and σ. The model applies the reparameterization trick (z = μ + σ · ε) to safely sample a point inside the probability cloud for each sentence. Softmax converts these raw coordinates into percentages. S1 becomes <code>[95% Topic 1, 3% Topic 2, 2% Topic 3]</code>, while S2 becomes <code>[2% Topic 1, 96% Topic 2, 2% Topic 3]</code>.</li>
+                <li><strong>4. Decoding and Optimization:</strong> The model multiplies S2's 96% mixture against the Decoder's internal Topic-Word matrix to guess the vocabulary. This topic-word matrix is multiple [1 x vocab_size] arrays stacked one below the other.  The PyTorch code nn.Linear(num_topics, vocab_size) creates a matrix with rows equal to topics, and columns equal to vocabulary. 
+                When Latent Space outputs a Topic Mixture for a sentence, it outputs a [1 x num_topics] vector. When this is multiplied with topic-word matrix ([num_topics x vocab_size]), the output is a [1 x vocab_size] vector that shows predicted topic probabilities (For example: [0.10, 0.90, 0.00] (10% Topic 1, 90% Topic 2, 0% Topic 3)). Log-softmax is applied here because the "Log" part takes the mathematical logarithm of those percentages. (Computers prefer to work with negative logarithms rather than tiny fractions like 0.00000001 to prevent the math from crashing). This output is the model's guess that S2's dominant Topic 2 corresponds to words like <code>click-stream</code> and <code>behavioral</code>.
+                The ELBO objective function calculates the KL-Divergence between the Decoder's guess and S2's actual target. If the Decoder guesses incorrectly, the reconstruction loss explodes. The Adam optimizer executes backpropagation, adjusting matrix weights so Topic 1 officially claims the platform words (<code>MOOC, Google</code>) and Topic 2 claims the methodology words (<code>click-stream, behavioral</code>).</li>
+                
               </ul>
+            </section>
+
+            {/* --- GROUND TRUTH VALIDATION SECTION --- */}
+            <section className="description-section">
+              <h2>Ground Truth Validation (Cohen's Kappa)</h2>
+              <p>
+                Unsupervised models discover latent structures without predefined labels. To measure real world accuracy, I mapped the AI generated clusters back to human defined categories.
+              </p>
+              <p>
+                To ensure a rigorous baseline, the ground truth dataset was constructed using manual annotations from 4 independent researchers across 4 distinct datasets. This consensus smoothed out individual human bias before benchmarking the AI.
+              </p>
+              
+              <h3 style={{ marginTop: "1.5rem", marginBottom: "0.5rem", color: "var(--text-heading)" }}>The Mathematical Formula</h3>
+              <p>
+                I utilized Cohen's Kappa (κ) to calculate the agreement between the human consensus and the AI. Unlike standard accuracy, Kappa mathematically subtracts the probability of the model guessing correctly by random chance.
+              </p>
+              <ul style={{ paddingLeft: "1.2rem", borderLeft: "2px solid var(--accent-color)" }}>
+                <li style={{ marginBottom: "0.5rem" }}>
+                  <code>κ = (Po - Pe) / (1 - Pe)</code>
+                </li>
+                <li style={{ marginBottom: "0.5rem" }}>
+                  <strong>Po (Observed Agreement):</strong> The raw accuracy. The percentage of times the AI and humans chose the exact same label.
+                </li>
+                <li>
+                  <strong>Pe (Expected Chance):</strong> The probability that both parties picked the same label blindly, based on the frequency distribution of the categories.
+                </li>
+              </ul>
+
+              <h3 style={{ marginTop: "1.5rem", marginBottom: "0.5rem", color: "var(--text-heading)" }}>Calculation Example (Using the Sample Abstract)</h3>
+              <p>
+                Assume we classify the 4 sentences of our ACM abstract into three domains: <em>Context</em>, <em>Methodology</em>, and <em>Outcomes</em>.
+              </p>
+              <ul>
+                <li>
+                  <strong>Human Consensus:</strong> S1 (Context), S2 (Context), S3 (Methodology), S4 (Outcomes).
+                </li>
+                <li>
+                  <strong>AI Prediction:</strong> S1 (Context), S2 (Outcomes), S3 (Methodology), S4 (Outcomes).
+                </li>
+              </ul>
+              
+              <p style={{ marginTop: "1rem", fontWeight: "500" }}>Step-by-Step Math:</p>
+              <ul style={{ listStyleType: "none", paddingLeft: "0" }}>
+                <li style={{ marginBottom: "0.5rem" }}>
+                  <strong>1. Calculate Po:</strong> They agreed on S1, S3, and S4. <br/>
+                  <code>Po = 3/4 = 0.75 (75% raw accuracy)</code>
+                </li>
+                <li style={{ marginBottom: "0.5rem" }}>
+                  <strong>2. Calculate Pe:</strong> We multiply the probability of the Human choosing a category by the probability of the AI choosing that category. <br/>
+                  <em>Context Chance:</em> (2/4 Human) × (1/4 AI) = 0.125<br/>
+                  <em>Methodology Chance:</em> (1/4 Human) × (1/4 AI) = 0.0625<br/>
+                  <em>Outcomes Chance:</em> (1/4 Human) × (2/4 AI) = 0.125<br/>
+                  <code>Pe = 0.125 + 0.0625 + 0.125 = 0.3125</code>
+                </li>
+                <li>
+                  <strong>3. Final Kappa (κ):</strong> <br/>
+                  <code>κ = (0.75 - 0.3125) / (1 - 0.3125) = 0.636</code>
+                </li>
+              </ul>
+              <p style={{ marginTop: "1rem" }}>
+                <strong>Conclusion:</strong> A Kappa score of 0.636 indicates <em>Substantial Agreement</em>. The AI is genuinely understanding semantic boundaries, not just getting lucky with frequent categories.
+                 
+              </p>
+              <p style={{ marginTop: "1rem" }}>
+                <strong>Note:</strong> Eventually for the three published research papers, the score was calculated across the 4 ground-truth datasets built by human 4 annotators.
+
+              </p>
             </section>
 
             <section className="tools-section">
