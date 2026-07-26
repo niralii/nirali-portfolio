@@ -49,7 +49,7 @@ export default function Home() {
             <li><a href="/#about">Home</a></li>
             <li><a href="/projects">Projects</a></li>
             <li><a href="https://scholar.google.com/citations?user=zhMtcooAAAAJ&hl=en&authuser=1" target="_blank" rel="noreferrer">Publications</a></li>
-            <li><a href="https://drive.google.com/file/d/1TuajQs8tmB7Q08uCIXUFx2hjzUDs3nlz/view?usp=sharing" target="_blank" rel="noreferrer">Resume</a></li>
+            <li><a href="https://drive.google.com/file/d/1FGh0ZXkgFXHeQeUuXsdb9Q30P7V5xW77/view?usp=sharing" target="_blank" rel="noreferrer">Resume</a></li>
           </ul>
           <button onClick={() => setTheme(theme === "light" ? "dark" : "light")} className="theme-toggle">
             {theme === "light" ? "🌙" : "☀️"}
@@ -67,7 +67,7 @@ export default function Home() {
                 Software Developer for the VIP Project at AI Makerspace, Pace Labs, at her university where she automated data preprocessing for researchers to analyse large scale dataset within minutes. She has also worked as a NLP student researcher at Lucy Labs, where she published three research papers under the guidance of Dr. David Joyner and Alex Duncan. Her research focused on topic modeling, data coding, and causal inference to understand how AI and other factors have evolved in online education in the last ten years.  
               </p>
               <p>
-                She is currently working at Nirchem Dyes and Chemicals as a computer vision engineer and earlier worked at Star Oxalate Pvt Ltd as a Generative AI Engineer. She has experience working as a scientific reviewer at Cactus Communications (1.5 years) and as a frontend software developer at Gujarati Gaurav Charitable Trust of India (1 year). She has a total work experience of 4 years with an additonal 1 year including internships. 
+                She is currently working at Nirchem Dyes and Chemicals as a generative AI engineer and earlier worked there as a Data Scientist. She has experience working as a scientific reviewer at Cactus Communications (1.5 years) and as a frontend software developer at Gujarati Gaurav Charitable Trust of India (1 year). She has a total work experience of 4.5 years with an additonal 1 year including internships. 
               </p>
               <p>
                 Nirali loves exploring the intersection of AI and education and please reach out if you would like to collaborate on any projects or research!
@@ -94,10 +94,10 @@ export default function Home() {
                   <td>Graduated! from Georgia Tech Master's in CS with specialization in Machine Learning</td>
                 </tr>
                 <tr>
-                  <td>March 2025</td>
+                  <td>April 2025</td>
                     <td>
-                      Joined {" "}
-                      <a href="https://nirchem.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Nirchem Dyes and Chemicals Pvt Ltd</a>{" "} as a full-time computer vision engineer
+                      Promoted as a generative AI engineer at {" "}
+                      <a href="https://nirchem.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Nirchem Dyes and Chemicals Pvt Ltd</a>
                     </td>
                 </tr>
                 
@@ -114,7 +114,8 @@ export default function Home() {
                   <td>Jan 2024</td>
                     <td>
                       Joined {" "}
-                      <a href="https://staroxalate.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Star Oxalate Pvt Ltd</a>{" "} as a Generative AI Engineer                    </td>
+                      <a href="https://nirchem.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#FF1493", textDecoration: "none" }}>Nirchem Dyes and Chemicals Pvt Ltd</a>{" "} as a full-time Data Scientist
+                    </td>
                 </tr>
                 <tr>
                   <td>Aug 2023</td>
