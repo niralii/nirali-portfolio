@@ -49,7 +49,7 @@ export default function Home() {
             <li><a href="/#about">Home</a></li>
             <li><a href="/projects">Projects</a></li>
             <li><a href="https://scholar.google.com/citations?user=zhMtcooAAAAJ&hl=en&authuser=1" target="_blank" rel="noreferrer">Publications</a></li>
-            <li><a href="https://drive.google.com/file/d/1FGh0ZXkgFXHeQeUuXsdb9Q30P7V5xW77/view?usp=sharing" target="_blank" rel="noreferrer">Resume</a></li>
+            <li><a href="https://drive.google.com/file/d/1R_Gpi2Hse0NrnXp9f9c8RAD19LHYT4xz/view?usp=sharing" target="_blank" rel="noreferrer">Resume</a></li>
           </ul>
           <button onClick={() => setTheme(theme === "light" ? "dark" : "light")} className="theme-toggle">
             {theme === "light" ? "🌙" : "☀️"}
