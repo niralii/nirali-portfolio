@@ -226,7 +226,10 @@ export default function ProjectTemplate() {
                 🚀 Working Demo
               </a>
               <a href="https://github.com/niralii/Ed-Study-" target="_blank" rel="noopener noreferrer" className="secondary-btn">
-                GitHub Repo
+                GitHub Code
+              </a>
+              <a href="https://github.com/niralii/Learning-At-Scale---Work-In-Progress" target="_blank" rel="noopener noreferrer" className="secondary-btn">
+                GitHub Research Material
               </a>
             </div>
 
