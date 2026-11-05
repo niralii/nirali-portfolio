@@ -248,13 +248,15 @@ export default function Home() {
           .nav-links { flex: 1; display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: flex-start; }
           .theme-toggle { flex-shrink: 0; margin-left: 0.5rem; width: 36px; height: 36px; }
           .navbar a { font-size: 0.85rem; }
-          .hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
-          .bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-          .overlay { height: 100%; }
-          .content { position: relative; padding: 1rem; top: 0; transform: none; left: 0; width: 100%; }
-          .card { transform: none; padding: 2rem 1rem; max-width: 95%; margin: 0 auto; }
-          .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
-          .links a { margin: 0; padding: 0.6rem 1rem; font-size: 1rem; white-space: nowrap; }
+          /* Show the whole illustration (girl sits in its lower half) and keep the card in the top part only */
+          .bg-image { width: 100%; height: auto; }
+          .overlay { height: 42%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0)); }
+          .content { position: absolute; padding: 0.75rem; top: 0; transform: none; left: 0; width: 100%; }
+          .card { transform: none; padding: 1rem 0.8rem; max-width: 95%; margin: 0 auto; border-radius: 1.5rem; }
+          h1 { font-size: 1.5rem; margin-bottom: 0.4rem; }
+          .tagline { font-size: 1rem; margin: 0.4rem 0 1rem 0; }
+          .links { display: flex; flex-wrap: nowrap; justify-content: center; gap: 0.5rem; }
+          .links a { margin: 0; padding: 0.45rem 0.8rem; font-size: 0.9rem; white-space: nowrap; }
         }
       `}</style>
     </main>
