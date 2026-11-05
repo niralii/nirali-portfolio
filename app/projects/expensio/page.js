@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from 'react';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 
 export default function ProjectTemplate() {
-  const [theme, setTheme] = useState("light");
+  const { theme, setTheme } = useTheme();
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
@@ -22,7 +22,7 @@ export default function ProjectTemplate() {
 
       {/* 2. THEME TOGGLE */}
       <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
-        {theme === "light" ? "🌙" : "☀️"}
+        {theme === "dark" ? "☀️" : "🌙"}
       </button>
 
       {/* MAIN CONTENT */}
