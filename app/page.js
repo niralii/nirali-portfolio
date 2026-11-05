@@ -195,7 +195,9 @@ export default function Home() {
         .nav-links { 
           list-style: none; 
           display: flex; 
-          gap: 2rem; 
+          flex: 1; 
+          justify-content: space-evenly; 
+          gap: 0.5rem; 
           margin: 0; 
           padding: 0; 
         }
@@ -245,7 +247,7 @@ export default function Home() {
           .bio-image { width: 70%; margin: 0 auto 2rem; }
           .navbar { padding: 0.5rem 0.5rem; }
           .navbar-content { flex-direction: row; align-items: center; }
-          .nav-links { flex: 1; display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: flex-start; }
+          .nav-links { flex: 1; display: flex; flex-wrap: nowrap; gap: 0.25rem; justify-content: space-evenly; }
           .theme-toggle { flex-shrink: 0; margin-left: 0.5rem; width: 36px; height: 36px; }
           .navbar a { font-size: 0.85rem; }
           /* Show the whole illustration (girl sits in its lower half) and keep the card in the top part only */
