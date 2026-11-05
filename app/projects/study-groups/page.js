@@ -36,7 +36,7 @@ export default function ProjectTemplate() {
 
           {/* --- TITLE HEADER --- */}
           <header>
-            <h1>Personalized AI Study Groups & GraphRAG Chatbot</h1>
+            <h1>Personalized AI Study Groups & GraphRAG-based AI assistant</h1>
             <p className="subtitle">
               A full-stack collaborative learning platform with a Neo4j knowledge graph, 
               GraphRAG pipeline, and Gemini-powered personalized study assistant — 
@@ -124,6 +124,55 @@ export default function ProjectTemplate() {
                 every 6 hours to prevent Aura free tier from pausing. Secrets are managed via 
                 Google Secret Manager.
               </p>
+            </section>
+
+            <section className="description-section">
+              <h2>How the Platform Works</h2>
+              <figure className="system-diagram" aria-labelledby="system-diagram-caption">
+                <div className="diagram-node">
+                  <strong>Student Web App</strong>
+                  <span>AI assistant, study groups, course channels, and video calls</span>
+                </div>
+                <div className="diagram-arrow" aria-hidden="true">↓</div>
+                <div className="diagram-node">
+                  <strong>Firebase Platform</strong>
+                  <span>Hosting delivers the React app · Firebase Auth manages Google sign-in</span>
+                  <span>Firestore syncs group messages, channels, files, and video-call signaling</span>
+                </div>
+                <div className="diagram-arrow" aria-hidden="true">↓ Assistant question</div>
+                <div className="diagram-node diagram-functions">
+                  <strong>Firebase Cloud Functions API</strong>
+                  <span>Authenticates requests and coordinates personalized AI responses</span>
+                </div>
+                <div className="diagram-branches">
+                  <div className="diagram-branch">
+                    <div className="diagram-arrow" aria-hidden="true">↓ Retrieves student context</div>
+                    <div className="diagram-node">
+                      <strong>Neo4j Aura Knowledge Graph</strong>
+                      <span>Student sessions, subjects, deadlines, retention, and peer patterns</span>
+                    </div>
+                    <div className="diagram-arrow" aria-hidden="true">↑ Graph context</div>
+                  </div>
+                  <div className="diagram-branch">
+                    <div className="diagram-arrow" aria-hidden="true">← Dataset ingestion</div>
+                    <div className="diagram-node">
+                      <strong>Academic Datasets</strong>
+                      <span>OULAD · Kaggle Habits · Zenodo Learning Behavior</span>
+                    </div>
+                    <div className="diagram-arrow" aria-hidden="true">→ Aggregated peer patterns</div>
+                  </div>
+                </div>
+                <div className="diagram-arrow" aria-hidden="true">↓ Grounded context and question</div>
+                <div className="diagram-node">
+                  <strong>Gemini 2.5 Flash</strong>
+                  <span>Generates a personalized response grounded in the retrieved graph data</span>
+                </div>
+                <div className="diagram-arrow" aria-hidden="true">↑ Response returned to the web app</div>
+                <figcaption id="system-diagram-caption">
+                  The AI assistant uses Firebase for the app and collaboration services, while Cloud Functions
+                  retrieves graph context and sends it to Gemini. Video media streams peer-to-peer with WebRTC.
+                </figcaption>
+              </figure>
             </section>
 
             <section className="description-section">
@@ -366,6 +415,47 @@ export default function ProjectTemplate() {
         p { font-size: 1.1rem; line-height: 1.7; color: var(--text-main); margin-bottom: 1rem; }
         ul { padding-left: 1.4rem; margin-bottom: 1rem; }
         li { font-size: 1.05rem; line-height: 1.7; color: var(--text-main); margin-bottom: 0.6rem; }
+        .system-diagram {
+          margin: 1.5rem 0 0;
+          padding: 1.5rem;
+          border: 1px solid var(--card-border);
+          border-radius: 12px;
+          background: var(--card-bg);
+        }
+        .diagram-node {
+          display: flex;
+          flex-direction: column;
+          gap: 0.35rem;
+          padding: 1rem;
+          border: 1px solid var(--card-border);
+          border-left: 4px solid var(--accent-color);
+          border-radius: 8px;
+          background: var(--bg-main);
+          text-align: center;
+        }
+        .diagram-node strong { color: var(--text-heading); }
+        .diagram-node span { color: var(--text-sub); font-size: 0.95rem; line-height: 1.5; }
+        .diagram-functions { max-width: 520px; margin: 0 auto; }
+        .diagram-arrow {
+          padding: 0.5rem;
+          color: var(--accent-color);
+          font-size: 0.95rem;
+          font-weight: 700;
+          text-align: center;
+        }
+        .diagram-branches {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 1rem;
+        }
+        .diagram-branch { display: flex; flex-direction: column; justify-content: center; }
+        .system-diagram figcaption {
+          margin-top: 1rem;
+          color: var(--text-sub);
+          font-size: 0.95rem;
+          line-height: 1.6;
+          text-align: center;
+        }
         code {
           background: var(--tag-bg);
           padding: 2px 6px;
@@ -404,6 +494,8 @@ export default function ProjectTemplate() {
           .project-detail-main { padding: 5rem 1.5rem; }
           h1 { font-size: 2rem; }
           .demo-btn { font-size: 1rem; padding: 0.85rem 2rem; }
+          .system-diagram { padding: 1rem; }
+          .diagram-branches { grid-template-columns: 1fr; }
         }
       `}</style>
     </div>

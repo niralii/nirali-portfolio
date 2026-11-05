@@ -37,41 +37,167 @@ export default function ProjectTemplate() {
           {/* --- TITLE HEADER --- */}
           <header>
             <h1>Hearteries</h1>
-            <p className="subtitle"></p>
+            <p className="subtitle">A quiet place to turn feeling into form</p>
           </header>
 
+          {/* --- DEMO BANNER --- */}
+          <div className="demo-banner">
+            <div className="demo-banner-content">
+              <div>
+                <p className="demo-label">Live Demo</p>
+                <p className="demo-note">
+                  A generative AI community that helps healing through art. Sign in with email or Google to try the breathing ritual and the blank canvas.
+                </p>
+              </div>
+              <a
+                href="https://hearteries.firebaseapp.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="demo-btn"
+              >
+                Open Demo →
+              </a>
+            </div>
+          </div>
+
           <div className="hero-image">
-            <img 
-              src="/hearteries_logo.png" 
-              alt="Project Screenshot" 
+            <img
+              src="/hearteries_logo.png"
+              alt="Hearteries Cover"
             />
           </div>
 
           <article className="content">
+
+            {/* --- THE IDEA --- */}
             <section className="description-section">
-              <h2>Description</h2>
+              <h2>The Idea</h2>
               <p>
-                A generative AI website that helps healing through art.              </p>
+                Most of us don't have a good place for big feelings. Journaling apps ask us to put
+                them into words. Drawing apps ask us to make something good. Hearteries asks for
+                neither. It pairs a short guided breathing ritual with a blank page for art. You
+                settle first, then you make a mark with no judgment and no audience.
+              </p>
+              <p>
+                The name joins "heart" and "arteries": the idea is that feeling has to flow somewhere.
+              </p>
             </section>
 
-            <section className="tools-section">
-              <h2>Tools Used</h2>
-              <div className="tech-stack-list">
-                <span>React</span>
-                <span>Python</span>
-                <span>AWS</span>
-                <span>AI Models</span>
+            {/* --- EXPERIENCE --- */}
+            <section>
+              <h2>How the Experience Works</h2>
+              <div className="arch-grid">
+                <div className="arch-card">
+                  <span className="arch-icon">💓</span>
+                  <h3>Arrive</h3>
+                  <p>
+                    A splash screen shows a heartbeat pulse and a blooming flower. It sets the pace
+                    before you do anything.
+                  </p>
+                </div>
+                <div className="arch-card">
+                  <span className="arch-icon">🔑</span>
+                  <h3>Sign In</h3>
+                  <p>
+                    Sign in with email and password or with Google, so your space stays private.
+                  </p>
+                </div>
+                <div className="arch-card">
+                  <span className="arch-icon">🌬️</span>
+                  <h3>Breathe, Then Create</h3>
+                  <p>
+                    Once you're in, a protected home page leads you through the breathing ritual
+                    and then the blank canvas.
+                  </p>
+                </div>
+                <div className="arch-card">
+                  <span className="arch-icon">🎨</span>
+                  <h3>Make It Yours</h3>
+                  <p>
+                    A dark theme and a warm cream theme are available. Your choice is remembered
+                    between visits.
+                  </p>
+                </div>
               </div>
             </section>
 
-            <div className="action-buttons">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="primary-btn">View Live Demo</a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="secondary-btn">GitHub Repo</a>
-            </div>
+            {/* --- HOW I BUILT IT --- */}
+            <section>
+              <h2>How I Built It</h2>
+              <div className="arch-grid">
+                <div className="arch-card">
+                  <span className="arch-icon">⚛️</span>
+                  <h3>Front End</h3>
+                  <p>
+                    React 18 with React Router. Three routes: / for the splash and sign-in, /home
+                    for the protected space, and a friendly 404.
+                  </p>
+                </div>
+                <div className="arch-card">
+                  <span className="arch-icon">⚡</span>
+                  <h3>Tooling</h3>
+                  <p>
+                    Vite, for a fast dev server and small production bundles.
+                  </p>
+                </div>
+                <div className="arch-card">
+                  <span className="arch-icon">🔒</span>
+                  <h3>Auth</h3>
+                  <p>
+                    Supabase handles email/password and Google OAuth. The home page redirects
+                    anyone who isn't signed in back to the start.
+                  </p>
+                </div>
+                <div className="arch-card">
+                  <span className="arch-icon">🛟</span>
+                  <h3>Resilience</h3>
+                  <p>
+                    An error boundary shows a calm fallback screen instead of a blank page if
+                    something breaks.
+                  </p>
+                </div>
+                <div className="arch-card">
+                  <span className="arch-icon">🌗</span>
+                  <h3>Look and Feel</h3>
+                  <p>
+                    One shared stylesheet, with the theme saved in localStorage. A small inline
+                    script applies the saved theme before the page paints, so there's no flash of
+                    the wrong theme.
+                  </p>
+                </div>
+                <div className="arch-card">
+                  <span className="arch-icon">🚀</span>
+                  <h3>Deployment</h3>
+                  <p>
+                    vite build produces a static dist/ folder hosted on Firebase Hosting. A rewrite
+                    rule sends every path to index.html so client-side routing works on refresh.
+                  </p>
+                </div>
+              </div>
+            </section>
 
-            <div className="disclaimer-box">
-              <p>This page will be updated soon, please refer to the resume for further details.</p>
-            </div>
+            {/* --- WHAT'S NEXT --- */}
+            <section>
+              <h2>What's Next</h2>
+              <p>
+                Ideas include saving and revisiting your pieces, different breathing patterns, and
+                gentle prompts for when the blank page feels too blank.
+              </p>
+            </section>
+
+            {/* --- TOOLS --- */}
+            <section className="tools-section">
+              <h2>Tech Stack</h2>
+              <div className="tech-stack-list">
+                <span>React 18</span>
+                <span>React Router</span>
+                <span>Vite</span>
+                <span>Supabase</span>
+                <span>Google OAuth</span>
+                <span>Firebase Hosting</span>
+              </div>
+            </section>
+
           </article>
         </div>
       </main>
@@ -92,6 +218,8 @@ export default function ProjectTemplate() {
           --tag-bg: #e8e4dc;
           --disclaimer-text: #666;
           --disclaimer-border: #dcdcdc;
+          --demo-banner-bg: #eef2ee;
+          --demo-banner-border: #c5d4c4;
         }
 
         :global([data-theme="dark"]) {
@@ -108,6 +236,8 @@ export default function ProjectTemplate() {
           --tag-bg: #444;
           --disclaimer-text: #999;
           --disclaimer-border: #444;
+          --demo-banner-bg: #1a2a1a;
+          --demo-banner-border: #3a5a3a;
         }
 
         .page-wrapper {
@@ -201,7 +331,44 @@ export default function ProjectTemplate() {
           font-style: italic; color: var(--disclaimer-text); font-size: 0.95rem;
         }
 
+        h3 { font-size: 1.1rem; color: var(--text-heading); margin-bottom: 0.5rem; margin-top: 0; }
+
+        .demo-banner {
+          background: var(--demo-banner-bg);
+          border: 1px solid var(--demo-banner-border);
+          border-radius: 12px;
+          padding: 1.5rem;
+          margin-bottom: 3rem;
+        }
+        .demo-banner-content {
+          display: flex; align-items: center; justify-content: space-between;
+          gap: 1.5rem; flex-wrap: wrap;
+        }
+        .demo-label {
+          font-weight: 700; font-size: 0.85rem; text-transform: uppercase;
+          letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.5rem;
+        }
+        .demo-note {
+          font-size: 0.95rem; color: var(--text-sub); line-height: 1.6; margin: 0; max-width: 520px;
+        }
+        .demo-btn {
+          flex-shrink: 0; padding: 0.75rem 1.5rem; background: var(--accent-color);
+          color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600;
+          font-size: 0.95rem; transition: opacity 0.2s; white-space: nowrap;
+        }
+        :global([data-theme="dark"]) .demo-btn { color: #2d2d2d; }
+        .demo-btn:hover { opacity: 0.8; }
+
+        .arch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .arch-card {
+          background: var(--card-bg); border: 1px solid var(--card-border);
+          border-radius: 10px; padding: 1.25rem;
+        }
+        .arch-icon { font-size: 1.5rem; display: block; margin-bottom: 0.5rem; }
+        .arch-card p { font-size: 0.95rem; color: var(--text-sub); margin: 0; }
+
         @media (max-width: 768px) {
+          .arch-grid { grid-template-columns: 1fr; }
           .project-detail-main { padding: 5rem 1.5rem; }
           h1 { font-size: 2rem; }
         }

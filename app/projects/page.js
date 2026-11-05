@@ -27,19 +27,10 @@ export default function ProjectsPage() {
       imageSrc: "/nirchem_logo.PNG"
     },
     {
-      id: 2,
-      title: "Expensio: Receipt Tracker SaaS App",
-      description: "A full stack AI agents app to calculate and optimize finances.",
-      skills: "Next.js 15, ReactJS, Inngest AgentKit, FAISS database, MCP, Amazon Bedrock",
-      link: "/projects/expensio", 
-      imageAlt: "Expensio Cover",
-      imageSrc: "/Expensio_logo.PNG"
-    },
-    {
       id: 3,
       title: "Hearteries",
-      description: "A generative AI website that helps healing through art.",
-      skills: "ReactJS, vision transformers, GANS, Gemini",
+      description: "A generative AI community that helps healing through art.",
+      skills: "ReactJS, Vite, Supabase, Firebase",
       link: "/projects/hearteries",
       imageAlt: "Hearteries Cover",
       imageSrc: "/hearteries_logo.png"
@@ -64,7 +55,7 @@ export default function ProjectsPage() {
     },
     {
       id: 6,
-      title: "Personalized study groups with AI chatbot",
+      title: "Personalized study groups with AI assistant",
       description: "Built an online video calling platform for students to study together and get recommendations on their study habits.",
       skills: "ReactJS, Google Firebase, GraphRAG, LangChain, Neo4j Database, Finetuning of LLMs",
       link: "/projects/study-groups",
