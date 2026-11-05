@@ -250,8 +250,9 @@ export default function Home() {
           .navbar a { font-size: 0.85rem; }
           /* Show the whole illustration (girl sits in its lower half) and keep the card in the top part only */
           .bg-image { width: 100%; height: auto; }
-          .overlay { height: 55%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 75%, rgba(0, 0, 0, 0) 100%); }
-          .content { position: absolute; padding: 0.75rem; top: 1.5rem; transform: none; left: 0; width: 100%; }
+          /* The shadow band is drawn by .content itself so its bottom edge always sits just below the card */
+          .overlay { display: none; }
+          .content { position: absolute; padding: 2.25rem 0.75rem 1.5rem; background: rgba(0, 0, 0, 0.3); top: 0; transform: none; left: 0; width: 100%; }
           .card { transform: none; padding: 1rem 0.8rem; max-width: 95%; margin: 0 auto; border-radius: 1.5rem; }
           h1 { font-size: 1.5rem; margin-bottom: 0.4rem; }
           .tagline { font-size: 1rem; margin: 0.4rem 0 1rem 0; }
