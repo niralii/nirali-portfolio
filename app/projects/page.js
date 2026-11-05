@@ -27,13 +27,22 @@ export default function ProjectsPage() {
       imageSrc: "/nirchem_logo.PNG"
     },
     {
+      id: 2,
+      title: "Personalized study groups with AI assistant",
+      description: "Built an online video calling platform for students to study together and get recommendations on their study habits.",
+      skills: "ReactJS, Google Firebase, GraphRAG, LangChain, Neo4j Database, Finetuning of LLMs",
+      link: "/projects/study-groups",
+      imageAlt: "Study Groups Cover",
+      imageSrc: "/ed_tech_logo.PNG"
+    },
+    {
       id: 3,
-      title: "Hearteries",
-      description: "A generative AI community that helps healing through art.",
-      skills: "ReactJS, Vite, Supabase, Firebase",
-      link: "/projects/hearteries",
-      imageAlt: "Hearteries Cover",
-      imageSrc: "/hearteries_logo.png"
+      title: "NLP Research in Online Education",
+      description: "Performed topic modeling and conducted causal inference on 562 academic papers and published three research papers.",
+      skills: "Topic modeling, DAG, logistic propensity score matching, BERT, sentence transformer, quantitative analysis, Python",
+      link: "/projects/nlp-research",
+      imageAlt: "NLP Research Cover",
+      imageSrc: "/NLP_logo.jpg"
     },
     {
       id: 4,
@@ -46,24 +55,15 @@ export default function ProjectsPage() {
     },
     {
       id: 5,
-      title: "NLP Research in Online Education",
-      description: "Performed topic modeling and conducted causal inference on 562 academic papers and published three research papers.",
-      skills: "Topic modeling, DAG, logistic propensity score matching, BERT, sentence transformer, quantitative analysis, Python",
-      link: "/projects/nlp-research",
-      imageAlt: "NLP Research Cover",
-      imageSrc: "/NLP_logo.jpg"
+      title: "Hearteries",
+      description: "A generative AI community that helps healing through art.",
+      skills: "ReactJS, Vite, Supabase, Firebase",
+      link: "/projects/hearteries",
+      imageAlt: "Hearteries Cover",
+      imageSrc: "/hearteries_logo.png"
     },
     {
       id: 6,
-      title: "Personalized study groups with AI assistant",
-      description: "Built an online video calling platform for students to study together and get recommendations on their study habits.",
-      skills: "ReactJS, Google Firebase, GraphRAG, LangChain, Neo4j Database, Finetuning of LLMs",
-      link: "/projects/study-groups",
-      imageAlt: "Study Groups Cover",
-      imageSrc: "/ed_tech_logo.PNG"
-    },
-    {
-      id: 7,
       title: "Reinforcement Learning Google Football",
       description: "Coded in the simulated environment to score points against the AI model.",
       skills: "PPO, Actor Critic models, MAPPO, KL Divergence, Docker",
@@ -72,7 +72,7 @@ export default function ProjectsPage() {
       imageSrc: "/football_logo.jpg"
     },
     {
-      id: 8,
+      id: 7,
       title: "Reinforcement Learning Lunar Lander",
       description: "Used deep Q learning for lunar lander to land successfully in the openai gym environment.",
       skills: "Deep Q Learning",
@@ -81,7 +81,7 @@ export default function ProjectsPage() {
       imageSrc: "/lunar_logo.png"
     },
     {
-      id: 9,
+      id: 8,
       title: "ML for Algorithmic Trading Model",
       description: "Time-series analysis of IBM and JP Morgan stocks from 2009–2015 using supervised learning and Q-learning.",
       skills: "Python, web scraping, data visualization",
@@ -90,7 +90,7 @@ export default function ProjectsPage() {
       imageSrc: "/ml_trading_logo.PNG"
     },
     {
-      id: 10,
+      id: 9,
       title: "WanderAR: AR Education App",
       description: "Developed a full-stack mobile application using React Native and AR to teach geography to school children.",
       skills: "React Native",

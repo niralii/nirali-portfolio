@@ -66,7 +66,7 @@ export default function ProjectTemplate() {
 
             <div className="action-buttons">
               <a href="#" target="_blank" rel="noopener noreferrer" className="primary-btn">View Live Demo</a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="secondary-btn">GitHub Repo</a>
+              <a href="https://github.com/niralii/WanderAR" target="_blank" rel="noopener noreferrer" className="secondary-btn">GitHub Repo</a>
             </div>
 
             <div className="disclaimer-box">

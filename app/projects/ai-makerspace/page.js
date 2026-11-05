@@ -66,7 +66,7 @@ export default function ProjectTemplate() {
             </section>
 
             <div className="action-buttons">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="primary-btn">View Live Demo</a>
+              <a href="https://drive.google.com/file/d/1gz-8mjuGhhkey6YpXKO3MdflDQcqZV6V/view" target="_blank" rel="noopener noreferrer" className="primary-btn">View Live Demo</a>
               <a href="#" target="_blank" rel="noopener noreferrer" className="secondary-btn">GitHub Repo</a>
             </div>
 
