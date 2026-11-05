@@ -70,7 +70,7 @@ export default function Home() {
                 Software Developer for the VIP Project at AI Makerspace, Pace Labs, at her university where she automated data preprocessing for researchers to analyse large scale dataset within minutes. She has also worked as a NLP student researcher at Lucy Labs, where she published three research papers. Her research focused on topic modeling and data coding to understand how AI and other factors have evolved in online education in the last ten years.  
               </p>
               <p>
-                She is currently working at Nirchem Dyes and Chemicals as a generative AI engineer and earlier worked there as a Data Scientist. She has experience working as a scientific reviewer at Cactus Communications (1.5 years) and as a frontend software developer at Gujarati Gaurav Charitable Trust of India (1 year). She has a total work experience of 4.5 years with an additonal 1 year including internships. 
+                She is currently working at Nirchem Dyes and Chemicals as a generative AI engineer and earlier worked there as a Data Scientist. She has experience working as a scientific reviewer at Cactus Communications (1.5 years) and as a frontend software developer at Gujarati Gaurav Charitable Trust of India (1 year). She has a total work experience of 5+ years with an additonal 1 year including internships. 
               </p>
               <p>
                 Nirali loves exploring the intersection of AI and education and please reach out if you would like to collaborate on any projects or research!
