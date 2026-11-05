@@ -32,7 +32,7 @@ export default function Home() {
             <h1>
               👋 Hi, I'm <span className="highlight">Nirali Thakkar</span>
             </h1>
-            <p className="tagline">Passionate about everything AI!</p>
+            <p className="tagline">Passionate about AI and Ed Tech!</p>
             <div className="links">
               <a href="https://github.com/niralii" target="_blank" rel="noreferrer">GitHub</a>
               <a href="https://linkedin.com/in/nirali-t" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -63,8 +63,11 @@ export default function Home() {
           <div className="bio-container">
             <div className="bio-text">
               <p>
-                Nirali has recently graduated with a Master's in Machine Learning from Georgia Institute of Technology. She previously worked as a student Machine Learning
-                Software Developer for the VIP Project at AI Makerspace, Pace Labs, at her university where she automated data preprocessing for researchers to analyse large scale dataset within minutes. She has also worked as a NLP student researcher at Lucy Labs, where she published three research papers under the guidance of Dr. David Joyner and Alex Duncan. Her research focused on topic modeling, data coding, and causal inference to understand how AI and other factors have evolved in online education in the last ten years.  
+                Nirali has recently graduated with a Master's in Machine Learning from Georgia Institute of Technology. She is currently working as a student researcher testing small latent world models in multiagent scenarios. She has been conducting research at the Human Augmented Analytics Lab at Georgia Tech on the project AI For Mental Health, where she is using causal inference tests to isolate factors that predict a student's mood. She is also the admin of the lab and is designing a Canva course to provide guidance to students getting into research.
+              </p>
+              <p>
+                She previously worked as a student Machine Learning
+                Software Developer for the VIP Project at AI Makerspace, Pace Labs, at her university where she automated data preprocessing for researchers to analyse large scale dataset within minutes. She has also worked as a NLP student researcher at Lucy Labs, where she published three research papers. Her research focused on topic modeling and data coding to understand how AI and other factors have evolved in online education in the last ten years.  
               </p>
               <p>
                 She is currently working at Nirchem Dyes and Chemicals as a generative AI engineer and earlier worked there as a Data Scientist. She has experience working as a scientific reviewer at Cactus Communications (1.5 years) and as a frontend software developer at Gujarati Gaurav Charitable Trust of India (1 year). She has a total work experience of 4.5 years with an additonal 1 year including internships. 
@@ -81,6 +84,10 @@ export default function Home() {
           <h2>News</h2>
             <table className="news-table">
               <tbody>
+                <tr>
+                  <td>Aug 2026</td>
+                  <td>HAAG Lab Admin, designing a Canva course serving as guidance for students getting into research</td>
+                </tr>
                 <tr>
                   <td>Jan 2026</td>
                     <td>
